@@ -10,7 +10,7 @@ try
   if isequal(version, '6.1.0.450 (R12.1)')
     cd(['datasets/' name]);
   elseif isequal(version, '6.5.0.180913a (R13)')
-    cd(['datasets\' name]);
+    cd(['datasets/' name]);
   else
     cd(['datasets/' name]);
   end
