@@ -4,11 +4,11 @@
 
 % Setting Optimisation options
 optimset.Display = 'off';
-optimset.TolX = 1e-6;
-optimset.TolFun = 1e-6;
+optimset.TolX = 1e-4;
+optimset.TolFun = 1e-4;
 optimset.DerivativeCheck = 'off'; 
 optimset.MaxFunEvals = 0;
-optimset.MaxIter = 500;   % optimiser iters
+optimset.MaxIter = 250;   % optimiser iters
 optimset.MaxOuterIter = 5000; % loop iters
 optimset.Bound = 'off';
 optimset.TolBound = 1e-4;
@@ -23,7 +23,7 @@ modSpecs.kernelType = {'rbfard', 'linard', 'bias', 'white'};
 modSpecs.TieARD = findstr('ard', strcat(modSpecs.kernelType{:})) > 0;
 
 % Loading data set
-dataset = 'overlap';
+dataset = 'bumpy';
 fprintf('Working with data-set %s\n', dataset);
 [X, y] = bfdLoadData(dataset, 'train', 1);
 
