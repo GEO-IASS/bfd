@@ -7,12 +7,8 @@ function [cellX, cellY] = bfdLoadData(name, type, Ninst)
 % Moving to the data repository
 orig_path = pwd;
 try 
-  if isequal(version, '6.1.0.450 (R12.1)')
-    cd(['datasets/' name]);
-  elseif isequal(version, '6.5.0.180913a (R13)')
-    cd(['datasets/' name]);
-  else
-    cd(['datasets/' name]);
+  if strfind(version, '7.0.1.24704')
+    cd(['~/datasets/' name]);
   end
 catch
   fprintf('Directory doesn''t seem to exist');
@@ -22,9 +18,9 @@ end
 % amount NINST
 switch nargin
  case 3
-    [cellX, cellY] = loadData(name, type, Ninst);
+    [cellX, cellY] = loadFiles(name, type, Ninst);
  case 2
-    [cellX, cellY] = loadData(name, type);
+    [cellX, cellY] = loadFiles(name, type);
  otherwise
   error('LOADDATA: Error with number of input arguments');
 end
@@ -40,7 +36,7 @@ end
 %%%
 %%% Auxiliary function to load the data
 %%%
-function [cellX, cellY] = loadData(name, type, Ninst)
+function [cellX, cellY] = loadFiles(name, type, Ninst)
 
 % Constructing string to obtain file list
 switch type
