@@ -39,7 +39,7 @@ for it = partitions
     if ~isreal(trialWidths(jit))
       fprintf('inverseWidth is complex\n');
     end
-    numIn = size(trainX,2);
+    numIn = size(trainX{1},2);
     params = bfdParamInit(modSpecs.kernelType, numIn, trialWidths(jit));
     model.kern = kernExpandParam(model.kern, params);
     % Resetting prior and posterior covariance kernels

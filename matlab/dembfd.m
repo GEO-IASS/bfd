@@ -4,13 +4,13 @@
 
 % Setting Optimisation options
 optimset.Display = 'off';
-optimset.TolX = 1e-8;
-optimset.TolFun = 1e-8;
+optimset.TolX = 1e-6;
+optimset.TolFun = 1e-6;
 optimset.DerivativeCheck = 'off'; 
 optimset.MaxFunEvals = 0;
-optimset.MaxIter = 500;   % optimiser iters
-optimset.MaxOuterIter = 5000; % loop iters
-optimset.Bound = 'off';
+optimset.MaxIter = 250;   % optimiser iters
+optimset.MaxOuterIter = 150; % loop iters
+optimset.Bound = 'on';
 optimset.TolBound = 1e-4;
 optimset.TolBeta = 1e-7;
 optimset.TolTheta = 1e-6;
@@ -19,11 +19,11 @@ options = setOptions(optimset);
 % Model specifications (kernel and param. tying)
 modSpecs.gamma = struct('a', 0.5, 'b', 0.5);
 modSpecs.d = 2;
-modSpecs.kernelType = {'rbfard', 'linard', 'bias', 'white'};
+modSpecs.kernelType = {'rbf', 'bias', 'white'};
 modSpecs.TieARD = findstr('ard', strcat(modSpecs.kernelType{:})) > 0;
 
 % Loading data set
-dataset = 'bumpy';
+dataset = 'full-spiral';
 fprintf('Working with data-set %s\n', dataset);
 [X, y] = bfdLoadData(dataset, 'train', 1);
 
@@ -32,7 +32,7 @@ model = bfd(X, y, modSpecs);
 
 % Setting inverseWidth
 params = kernExtractParam(model.kern);
-invWidth = 1;
+invWidth = 100;
 numIn = size(X,2);
 params = bfdParamInit(modSpecs.kernelType, numIn, invWidth);
 model.kern = kernExpandParam(model.kern, params);

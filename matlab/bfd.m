@@ -19,7 +19,8 @@ kernelType = modSpecs.kernelType;
 model.kern = kernCreate(model.X, kernelType);
 
 if modSpecs.TieARD
-  model.kern = cmpndTieParameters(model.kern, {[3, 6], [4, 7]});
+  tiedParams = genParamTying(numIn);
+  model.kern = cmpndTieParameters(model.kern, tiedParams);
   model.kern.comp{1}.transforms(2).type = 'negLogLogit';
   model.kern.comp{2}.transforms(2).type = 'negLogLogit';
 end
@@ -55,3 +56,10 @@ model = bfdComputeAlpha(model);
 
 % Setting Sigma
 model = bfdUpdateSigma(model);
+
+
+function tiedParams = genParamTying(numIn)
+
+for it = 1:numIn
+  tiedParams{1,it} = [it+2,it+3+numIn];
+end
