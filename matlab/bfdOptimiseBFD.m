@@ -41,9 +41,9 @@ while boundDiff > options(20) & counter < options(21) & ...
     params = scg('bfdKernelObjective', params, ...
                   options, 'bfdKernelGradient', model);
     model.kern = kernExpandParam(model.kern, params);
+    model.kern.Kstore = kernCompute(model.kern, model.X);
     
     % E step
-    model.kern.Kstore = kernCompute(model.kern, model.X);
     model = bfdUpdateBeta(model); 
     model = bfdComputeAlpha(model);
     model = bfdUpdateSigma(model);
