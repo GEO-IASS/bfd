@@ -1,9 +1,15 @@
 function params = bfdParamInit(kernelType, numIn, x)
 
+% BFDPARAMINIT Initialises kernel parameters
+
+% BFD
+
+% Sets the parameter(1) = 1
 if nargin < 3
   x = 1;
 end
 
+% Initialise parameters according to kernel type
 switch strcat(kernelType{:})
  case 'white'
   params(1) =  negLogLogitTransform(exp(log(x)), 'xtoa'); % white

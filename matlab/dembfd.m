@@ -1,12 +1,6 @@
-%function runbfd
+% DEMOBFD Demo for classifying Toy data sets
 
-% RUNBFD Run the BFD on a data-set.
-%
-% runbfd(dataName, rbfInit, tol);
-
-% Copyright (c) 2004 Tonatiuh Pena Centeno and Neil D. Lawrence
-% File version 
-% BFD toolbox version 0.1
+% BFD
 
 % Setting Optimisation options
 optimset.Display = 'off';
@@ -52,8 +46,7 @@ model = bfdUpdateSigma(model);
 % Optimising the model
 model = bfdOptimiseBFD(model, options);
 
-% Creating a new model with the parameters 
-% that were learned
+% Creating a new model with leanrt parameters 
 params = kernExtractParam(model.kern);
 newSpecs = modSpecs;
 [newModel, K] = bfd(X, y, newSpecs, params, model.beta);

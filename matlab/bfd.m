@@ -2,20 +2,20 @@ function [model, K] = bfd(X, Y, modSpecs, params, beta)
 
 % BFD Creates a model with parameters and required specifications
 
+% BFD
 
 % Setting mandatory fields
 model.X = X;
 model.y = Y;
 numIn = size(model.X,2);
 model = bfdComputeL(model);
-model.d = modSpecs.d;
-  
+model.d = modSpecs.d;  
 N = size(model.X,1);
 model.I = (1:N);
 
-kernelType = modSpecs.kernelType;
 
 %  Creating Kernel structure
+kernelType = modSpecs.kernelType;
 model.kern = kernCreate(model.X, kernelType);
 
 if modSpecs.TieARD
@@ -35,6 +35,7 @@ end
 % Computing kernel
 model.kern.Kstore = kernCompute(model.kern, model.X);
 
+% Computing kernel without autocorrelated noise
 if nargout == 2
   K = kernCompute(model.kern, model.X, model.X);
 end

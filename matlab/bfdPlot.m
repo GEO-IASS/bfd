@@ -1,14 +1,11 @@
 function bfdPlot(model, titleStrng, kernelType, dataset, axHandle)
 
-% BFDPLOT Plot the results of the discriminant.
-%
-% bfdplot(model, axHandle)
+% BFDPLOT Plot the discriminant defined by the MODEL
 
-% Copyright (c) 2004 Tonatiuh Pena Centeno and Neil D. Lawrence
-% File version 
-% BFD toolbox version 0.1
+% BFD
 
 
+% Set format parameters for the plot
 markerSize = 10;
 fontName = 'times';
 fontSize = 16;
@@ -17,9 +14,12 @@ if nargin < 5
 else
     axes(axHandle)
 end 
+
+% Splitting training data
 x0 = model.X(find(model.y==0),:);
 x1 = model.X(find(model.y==1),:);
 
+% Plotting training data
 hold on;
 a = plot(x1(:,1), x1(:,2), 'r+');
 set(a, 'markersize', markerSize, 'lineWidth', 2);
@@ -34,7 +34,6 @@ set(gca, 'xlim', xlim);
 ylim = get(gca, 'ylim');
 ylim = ylim*1.2;
 set(gca, 'ylim', ylim);
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Generating test data
 xnum = 1;
@@ -50,13 +49,11 @@ y_range = linspace(ylim(1), ylim(2), y_test_num);
 xtest(:, 1) = xs(:);
 xtest(:, 2) = ys(:);
 
-% plotting data and features
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Projecting test data fstar = alpta*kstar
 optMean = kernCompute(model.kern, xtest, model.X)*model.alpha;
 
 
-% Plotting the mean of projected test points using the optimised
-% hyperparameters
+% Plotting mean of the projections of test points 
 optMean = reshape(optMean(:,1), y_test_num, x_test_num);
 [void, a] = contour(x_range, y_range, optMean, [model.bias model.bias], 'b'); 
 [void, a] = contour(x_range, y_range, optMean, [model.bias+0.25 model.bias+0.25], 'b'); 
@@ -66,7 +63,7 @@ set(a, 'linewidth', 2, 'linestyle', ':');
 drawnow
 hold off;		
 
-
+% Saving options
 % $$$ % Saving the plot
 % $$$ if nargin > 3
 % $$$   if isequal(version, '6.1.0.450 (R12.1)')

@@ -1,7 +1,8 @@
 function model = bfdOptimiseBFD(model, options)
 
+% BFDOPTIMISEBFD Optimises a BFD model
 
-% Optimises an BFD model
+% BFD
 
 % Monitoring bound
 boundOld = -Inf;
@@ -22,6 +23,7 @@ thetaDiff = abs(thetaNew-thetaOld);
 % Cycles counter
 counter = 0;
 
+% Displaying initial bound
 fprintf('Initial bound is %2.6f\n', boundNew);
 
 % Optimisation loop
@@ -64,6 +66,7 @@ while boundDiff > options(20) & counter < options(21) & ...
     
 end
 
+% Displaying final bound and final beta
 boundNew = bfdBound(model);
 fprintf('Value of bound after training is: %2.4f\n', boundNew);
 fprintf('The value of beta is: %2.9f\n', model.beta);

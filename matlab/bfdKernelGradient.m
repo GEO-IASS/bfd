@@ -1,20 +1,16 @@
 function g = bfdKernelGradient(params, model)
 
-% KERNELGRADIENT Gradient of likelihood approximation wrt kernel parameters.
-%
-% g = kernelGradient(params, model, prior)
+% BFDKERNELGRADIENT Gradient of KL divergence wrt kernel parameters.
 
-% Copyright (c) 2004 Tonatiuh Pena Centeno and Neil D. Lawrence
-% File version 
-% BFD toolbox version 0.1
+% BFD 
 
 
-%/~
+% Verifying parameters are fine
 if any(isnan(params))
   warning('Parameter is NaN')
 end
-%~/
 
+% Computing the gradient
 x = model.X(model.I, :);
 model.kern = kernExpandParam(model.kern, params);
 K = kernCompute(model.kern, x);

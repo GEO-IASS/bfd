@@ -1,6 +1,11 @@
 function Ltheta = bfdBound(model)
 
+% BFDBOUND Computes bound on marginal log-lile
+
+% BFD
+
 % Computes the bound of the logmarginal likelihood
+% Prior over Beta is included
 [invSigma,UC] = pdinv(model.Sigma);
 K = model.kern.Kstore;
 N = size(model.y, 1);

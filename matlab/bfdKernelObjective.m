@@ -1,20 +1,15 @@
 function f = bfdKernelObjective(params, model)
 
-% KERNELOBJECTIVE Likelihood approximation.
-%
-% f = kernelObjective(params, model, prior)
+% BFDKERNELOBJECTIVE KL divergence between prior and posterior kernels 
 
-% Copyright (c) 2004 Tonatiuh Pena Centeno and Neil D. Lawrence
-% File version 
-% BFD toolbox version 0.1
+% BFD
 
-
-%/~
+% Verifying parameters are fine
 if any(isnan(params))
   warning('Parameter is NaN');
 end
-%~/
 
+% Computing the cost function
 x = model.X(model.I, :);
 model.kern = kernExpandParam(model.kern, params);
 

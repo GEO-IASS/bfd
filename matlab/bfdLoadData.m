@@ -1,6 +1,8 @@
 function [cellX, cellY] = bfdLoadData(name, type, Ninst)
 
-% Loads NINST files in the data set named NAME
+% BFDLOADDATA Loads NINST files belonging to data set NAME
+
+% BFD
 
 % Moving to the data repository
 orig_path = pwd;
@@ -16,6 +18,8 @@ catch
   fprintf('Directory doesn''t seem to exist');
 end
 
+% Loading ALL instances of only the specified 
+% amount NINST
 switch nargin
  case 3
     [cellX, cellY] = loadData(name, type, Ninst);

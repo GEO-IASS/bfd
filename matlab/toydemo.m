@@ -1,8 +1,6 @@
-% Classification script for TOY datasets.
+% TOYDEMO Script to classify Toy data and to plot the results
 
-% Copyright (c) 2004 Tonatiuh Pena Centeno and Neil D. Lawrence
-% File version 
-% BFD toolbox version 0.1 
+% BFD
 
 % Setting optimisation options
 optimset.Display = 'off';
@@ -24,7 +22,8 @@ modSpecs.TieARD = length(findstr('ard', strcat(modSpecs.kernelType{:}))) > 0;
 modSpecs.gamma = struct('a', 0.5, 'b', 0.5);
 modSpecs.d = 2;
 
-% Other information
+% Specifying toy data and initialisation
+% parameters
 fileNames = {'bumpy', 'overlap', ...
              'toyARD', 'full-spiral'};
 partitions = [1];
@@ -32,8 +31,10 @@ otherWidths = [1, 10, 100];
 spiralWidths = [1, 500, 5000];
 orig_path = pwd;
 
+% Iterating over every file
 for it = 1:length(fileNames)
 
+  % Initialisations change according to data set
   if length(findstr('spiral', fileNames{it})) ~= 0
     trialWidths = spiralWidths;
   else
@@ -43,7 +44,7 @@ for it = 1:length(fileNames)
   fprintf('Working with dataset: %s\n', fileNames{it});
   
   % Training models with different data realisations and
-  % different trialWidths
+  % different inverse widths
   [paramRecord, likeRecord]  = bfdTrainModel(partitions, trialWidths,...
                                       modSpecs, optimset, fileNames{it});
   % Selecting the 'best' parameter set
