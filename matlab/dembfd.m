@@ -4,11 +4,11 @@
 
 % Setting Optimisation options
 optimset.Display = 'off';
-optimset.TolX = 1e-4;
-optimset.TolFun = 1e-4;
+optimset.TolX = 1e-8;
+optimset.TolFun = 1e-8;
 optimset.DerivativeCheck = 'off'; 
 optimset.MaxFunEvals = 0;
-optimset.MaxIter = 250;   % optimiser iters
+optimset.MaxIter = 500;   % optimiser iters
 optimset.MaxOuterIter = 5000; % loop iters
 optimset.Bound = 'off';
 optimset.TolBound = 1e-4;
