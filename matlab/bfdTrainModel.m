@@ -62,8 +62,8 @@ for it = partitions
                               'width', trialWidths(jit), 'it', it, 'jit', jit);
     
     % Use these lines only if you want to save partial results
-    %bfdSaveData(modSpecs.kernelType, [dataset], ...
-    %         'partialResults', partialInfo);
+    bfdSaveData(modSpecs.kernelType, [dataset], ...
+             'partialResults', partialInfo);
   end
 end
 
