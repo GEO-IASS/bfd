@@ -9,7 +9,7 @@ catch
 end
 
 % Creating a list with resulting files
-dataList = dir([kernelType, '*_Error.mat']);
+dataList = dir([strcat(kernelType{:}), '_', dataset, '20*_Error.mat']);
 nFiles = length(dataList);
 
 % Fetching the number nTrialWidths and 
@@ -18,7 +18,7 @@ for it = 1:nFiles
   file{it,1} = load(dataList(it).name);
   idxPartitions(it) = file{it}.params.info.it;
   idxTrialWidths(it) = file{it}.params.info.jit;
-end
+end 
 
 % Reading parameters for every stored file
 for it = idxPartitions
@@ -29,5 +29,5 @@ for it = idxPartitions
 end
 
 cd(orig_path);
-[params, selection] = selectWidth(paramRecord, likeRecord);    
+[params, selection] = bfdSelectWidth(paramRecord, likeRecord);    
 
