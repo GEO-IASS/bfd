@@ -4,12 +4,12 @@
 
 % Setting optimisation options
 optimset.Display = 'off';
-optimset.TolX = 1e-8;
-optimset.TolFun = 1e-8;
+optimset.TolX = 1e-3;
+optimset.TolFun = 1e-3;
 optimset.DerivativeCheck = 'off'; 
 optimset.MaxFunEvals = 0;
-optimset.MaxIter = 1500;   % optimiser iters
-optimset.MaxOuterIter = 5000; % loop iters
+optimset.MaxIter = 15;   % optimiser iters
+optimset.MaxOuterIter = 5; % loop iters
 optimset.Bound = 'off';
 optimset.TolBound = 1e-4;
 optimset.TolBeta = 1e-7;
@@ -53,7 +53,7 @@ for it = 1:length(fileNames)
   % Creating a new model and projecting test data
   newSpecs = modSpecs;
   [testX, testY] = bfdLoadData(fileNames{it}, 'train', length(partitions));
-  [newModel, K] = bfd(testX{1}, testY{1}, newSpecs, params(1:end-1), params(end));
+  [newModel, K] = bfd(testX, testY, newSpecs, params(1:end-1), params(end));
   f = K*newModel.alpha;
   newModel.bias = mean(f);
   
@@ -62,7 +62,7 @@ for it = 1:length(fileNames)
            modSpecs.kernelType, fileNames{it});
   
   % Uncomment this line if you want to save the final results
-  %bfdSaveData(modSpecs.kernelType, fileNames{it}, 'toyResults', params); 
+  bfdSaveData(modSpecs.kernelType, fileNames{it}, 'toyResults', params); 
  
 end % End of For loop
 
