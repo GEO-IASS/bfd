@@ -61,4 +61,5 @@ fprintf('Errors were computed.\n');
 fprintf('Average error rate = %2.4f with std = %2.4f\n',...
          mean(error), std(error));
   
-
+% Uncomment this line if you want to save the final results
+%bfdSaveData(modSpecs.kernelType, dataset, 'UCIResults', params);

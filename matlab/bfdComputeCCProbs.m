@@ -4,10 +4,10 @@ function [p1, p0] = bfdComputeCCProbs(model, trainF, trainY, testF)
 
 % BFD
 
-  
+
 % Note: This function assumes binary labelled data with 
 % the format y \in {0,1}
-  
+ 
 % Computing the means and STD for each class
 m0 = mean(trainF(trainY == 0));
 sd0 = std(trainF(trainY == 0));

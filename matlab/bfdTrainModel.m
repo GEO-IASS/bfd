@@ -24,8 +24,17 @@ for it = partitions
   for jit = 1:nTrialWidths
     fprintf('Parameters for Partition: %d and initial invWidth: %d\n', ...
             it, jit);
+    % Adjusting X & Y according to the type of loaded data
+    if iscell(trainX)
+      X = trainX{it}; 
+      Y = trainY{it};
+    else
+      X = trainX;
+      Y = trainY;
+    end
+    
     % Creating model 
-    model = bfd(trainX, trainY, modSpecs); 
+    model = bfd(X, Y, modSpecs); 
     % Setting inverseWidth
     if ~isreal(trialWidths(jit))
       fprintf('inverseWidth is complex\n');
@@ -51,6 +60,7 @@ for it = partitions
     partialInfo.bound = likeRecord(itCntr,jit);
     partialInfo.info = struct('partition', partitions(itCntr), ...
                               'width', trialWidths(jit), 'it', it, 'jit', jit);
+    
     % Use these lines only if you want to save partial results
     %bfdSaveData(modSpecs.kernelType, [dataset], ...
     %         'partialResults', partialInfo);

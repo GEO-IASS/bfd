@@ -60,6 +60,8 @@ for it = 1:length(fileNames)
   % Plotting results
   bfdPlot(newModel, 'Using original code', ...
            modSpecs.kernelType, fileNames{it});
+  
+  % Uncomment this line if you want to save the final results
   %bfdSaveData(modSpecs.kernelType, fileNames{it}, 'toyResults', params); 
  
 end % End of For loop
