@@ -6,11 +6,11 @@ function [cellX, cellY] = bfdLoadData(name, type, Ninst)
 orig_path = pwd;
 try 
   if isequal(version, '6.1.0.450 (R12.1)')
-    cd(['/home/tpena/datasets/' name]);
+    cd(['datasets/' name]);
   elseif isequal(version, '6.5.0.180913a (R13)')
-    cd(['H:\datasets\' name]);
+    cd(['datasets\' name]);
   else
-    cd(['/home/tpena/datasets/' name]);
+    cd(['datasets/' name]);
   end
 catch
   fprintf('Directory doesn''t seem to exist');
@@ -26,6 +26,12 @@ switch nargin
 end
 cd(orig_path);
 
+% Returning vectors in case only 
+% 1 instance is requested
+if Ninst == 1
+  cellX = cellX{1};
+  cellY = cellY{1};
+end
 
 %%%
 %%% Auxiliary function to load the data

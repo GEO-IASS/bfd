@@ -66,21 +66,17 @@ set(a, 'linewidth', 2, 'linestyle', ':');
 drawnow
 hold off;		
 
-% $$$ % Setting title
-% $$$ if nargin > 1
-% $$$   title(titleStrng);
-% $$$ end
 
-% Saving the plot
-if nargin > 3
-  if isequal(version, '6.1.0.450 (R12.1)')
-    results_path = '/home/tpena/mlprojects/bfd/matlab/toyResults';
-    orig_path = '/home/tpena/mlprojects/bfd/matlab/';
-  else
-    results_path = 'c:\mlprojects\bfd\matlab\toyResults';
-    orig_path = 'c:\mlprojects\bfd\matlab';
-  end
-  cd(results_path);
-  print('-depsc', [kernelType{:}, '_', dataset ,'.eps']);
-  cd(orig_path); pause(1); close; % close figure
-end
+% $$$ % Saving the plot
+% $$$ if nargin > 3
+% $$$   if isequal(version, '6.1.0.450 (R12.1)')
+% $$$     results_path = '/home/tpena/mlprojects/bfd/matlab/toyResults';
+% $$$     orig_path = '/home/tpena/mlprojects/bfd/matlab/';
+% $$$   else
+% $$$     results_path = 'c:\mlprojects\bfd\matlab\toyResults';
+% $$$     orig_path = 'c:\mlprojects\bfd\matlab';
+% $$$   end
+% $$$   cd(results_path);
+% $$$   print('-depsc', [kernelType{:}, '_', dataset ,'.eps']);
+% $$$   cd(orig_path); pause(1); close; % close figure
+% $$$ end
