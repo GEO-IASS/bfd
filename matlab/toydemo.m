@@ -4,12 +4,12 @@
 
 % Setting optimisation options
 optimset.Display = 'off';
-optimset.TolX = 1e-3;
-optimset.TolFun = 1e-3;
+optimset.TolX = 1e-6;
+optimset.TolFun = 1e-6;
 optimset.DerivativeCheck = 'off'; 
 optimset.MaxFunEvals = 0;
-optimset.MaxIter = 15;   % optimiser iters
-optimset.MaxOuterIter = 5; % loop iters
+optimset.MaxIter = 500;   % optimiser iters
+optimset.MaxOuterIter = 150; % loop iters
 optimset.Bound = 'off';
 optimset.TolBound = 1e-4;
 optimset.TolBeta = 1e-7;
@@ -35,8 +35,13 @@ orig_path = pwd;
 for it = 1:length(fileNames)
 
   % Initialisations change according to data set
-  if length(findstr('spiral', fileNames{it})) ~= 0
+  if length(findstr('spiral', fileNames{it})) ~= 0 | ...
+     length(findstr('bumpy', fileNames{it})) ~= 0
     trialWidths = spiralWidths;
+    optimset.TolX = 1e-8;
+    optimset.TolFun = 1e-8;
+    optimset.MaxIter = 1500;   % optimiser iters
+    optimset.MaxOuterIter = 2500; % loop iters
   else
     trialWidths = otherWidths;
   end
