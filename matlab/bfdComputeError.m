@@ -1,6 +1,15 @@
 function [error, predY, probY] = bfdComputeError(trainData, testData, ...
                                               modSpecs, params)
 
+% BFDCOMPUTEERROR Computes prediction error on test data
+
+% BFD
+
+
+% Note: this function uses training data to compute the centres
+% and std's of the Gaussians that model both classes. This is
+% required to project the test data & to compute the class. error
+
 % Verifying training/test data
 if size(trainData) ~= size(testData)
   error(['ComputeError: there''s something wrong with train/test ' ...

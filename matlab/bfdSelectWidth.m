@@ -1,5 +1,11 @@
 function [params, selection] = bfdSelectWidth(paramRecord, likeRecord)
 
+% BFDSELECTWIDTH Selects arameters in terms of the marginal like
+
+% BFD
+  
+% Verifying that likelihood & param's matrices 
+% have the same dimensions
 if size(paramRecord) ~= size(likeRecord)
   error('selectWidth: inputs should have same dimensions');
 end
@@ -13,7 +19,8 @@ if nTrialWidths > 1
 else 
   index = ones(1,nPartitions);
 end
- 
+
+% Selecting the max. likelihoods per partition
 for it = 1:nPartitions
   selLike(it,1) = likeRecord(it,index(it));
 end

@@ -1,17 +1,24 @@
 function [paramRecord, likeRecord]  = ...
                                bfdTrainModel(partitions, trialWidths,...
                                           modSpecs, optimset, dataset)
- 
+
+% BFDTRAINMODEL Trains several BFD models according to partitions/trialWidths  
+
+% BFD
+
 % Setting constants
 nPartitions = length(partitions);
 nTrialWidths = length(trialWidths);
 
+% Loading data
 [trainX, trainY] = bfdLoadData(dataset, 'train', max(partitions));
 
 % Optimisation options
 options = setOptions(optimset); 
 itCntr = 0;
 
+% Training nPartitions X nTrialWidths models and storing the results
+% in a matrix (likelihoodRecord) and a cell (paramRecord)
 for it = partitions
   itCntr = itCntr+1;
   for jit = 1:nTrialWidths
@@ -44,6 +51,7 @@ for it = partitions
     partialInfo.bound = likeRecord(itCntr,jit);
     partialInfo.info = struct('partition', partitions(itCntr), ...
                               'width', trialWidths(jit), 'it', it, 'jit', jit);
+    % Use these lines only if you want to save partial results
     %bfdSaveData(modSpecs.kernelType, [dataset], ...
     %         'partialResults', partialInfo);
   end

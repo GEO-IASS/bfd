@@ -4,6 +4,7 @@ function params = bfdParamInit(kernelType, numIn, x)
 
 % BFD
 
+  
 % Sets the parameter(1) = 1
 if nargin < 3
   x = 1;

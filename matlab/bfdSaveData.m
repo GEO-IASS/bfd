@@ -1,5 +1,10 @@
 function bfdSaveData(kernelType, dataset, resultType, params, varargin)
 
+% BFDSAVEDATA Saves results of (training a/classifying with a) BFD model
+  
+% BFD
+  
+% Verifying which OS/Matlab version is being used
 if isequal(version, '6.1.0.450 (R12.1)')
   result_path = ['/home/tpena/mlprojects/bfd/matlab/', ...
                     resultType, '/'];
@@ -47,7 +52,7 @@ else
     fprintf('Error when saving, skipping...\n');
   end  
 end
-
+% Going back to original directory
 cd(orig_path);
 
 

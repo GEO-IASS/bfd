@@ -1,4 +1,4 @@
-% DEMOBFD Demo for classifying Toy data sets
+% DEMOBFD Demo for classifying a given Toy data set
 
 % BFD
 

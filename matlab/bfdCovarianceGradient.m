@@ -1,6 +1,6 @@
 function g = bfdCovarianceGradient(invK, postK)
 
-% BFDCOVARINCEGRADIENT Gradnt. of marg. log-likelihood wrt K
+% BFDCOVARINCEGRADIENT Gradient of marginal log-likelihood wrt K
 
 % BFD
 

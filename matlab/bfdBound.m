@@ -1,6 +1,6 @@
 function Ltheta = bfdBound(model)
 
-% BFDBOUND Computes bound on marginal log-lile
+% BFDBOUND Computes bound on marginal log-likelihood
 
 % BFD
 
