@@ -41,7 +41,7 @@ for it = 1:length(fileNames)
     optimset.TolX = 1e-8;
     optimset.TolFun = 1e-8;
     optimset.MaxIter = 1500;   % optimiser iters
-    optimset.MaxOuterIter = 2500; % loop iters
+    optimset.MaxOuterIter = 5000; % loop iters
   else
     trialWidths = otherWidths;
   end
