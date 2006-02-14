@@ -1,24 +1,30 @@
 %
 % VERSION 1.11 IN CVS
 
-The last release of this version of the BFD toolbox is 1.11. This realease 
-should correspond to submissions 1 and 2 of the JMLR paper. The following 
-equivalences apply:
 
-My parlance:	   JMLR:	  My parlance:			CVS: 
-Submission 1  ---- 04-473(1)	  original			1.11
-Submission 2  ---- 04-473(2) ---- Revision 1			1.11.2
-                                  Revision 2 (never submitted)	
-Submission 3  ---- 04-473(3) ---- Revision 3			1.12
+The last release of this version of the BFD toolbox is 1.13, which in MATLAB 
+code is the same as 1.11 and 1.12 but with some differences in the TEX files.
+
+TPC - 14-Feb-04
+
+-----------------------------------------------------------------------------
+This realease should correspond to submissions 1 and 2 of the JMLR paper. 
+The following equivalences apply:
+
+My parlance:	   JMLR:	  My parlance:			CVS:   TAG
+Submission 1  ---- 04-473(1)	  original			1.11  rel-1-11
+Submission 2  ---- 04-473(2) ---- Revision 1			1.13  rel-1-11
+                                  Revision 2 (never submitt'd)	
+Submission 3  ---- 04-473(3) ---- Revision 3			1.14  rel-1-12
 
 Go to the TEX directory to obtain the copy of Submission 
 
-The next release of the toolbox, that is 1.12, is available at 
+The next release of the toolbox will be rel-1-12 and will be available at 
 
 		www.dcs.shef.ac.uk/~neil
 
 and corresponds to submission 3 of the JMLR paper, which was the accepted 
-submission by the way. Toolbox 1.12 is associated as well to the FINAL 
+submission by the way. rel-1-12 will also be associated to the  FINAL 
 version of the JMLR paper: that is the paper that was printed in the journal,
 finally.
 
