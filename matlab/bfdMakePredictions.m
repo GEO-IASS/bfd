@@ -5,6 +5,9 @@ function [predY, probY] = bfdMakePredictions(model, trainF, ...
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
+
 % Computing Class conditional probs
 [p1, p0] = bfdComputeCCProbs(model, trainF, trainY, testF);
 

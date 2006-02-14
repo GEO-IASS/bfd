@@ -1,0 +1,30 @@
+Working with dataset: overlap
+Parameters for Partition: 1 and initial invWidth: 1
+Initial bound is -285.355289
+Value of bound after training is: 750.4054
+The value of beta is: 0.306740942
+Parameters for Partition: 1 and initial invWidth: 2
+Initial bound is -319.074848
+Warning: Maximum number of iterations has been exceeded
+PDINV:Matrix is not positive definite in pdinv, adding jitter.PDINV:Matrix is not positive definite in pdinv, adding jitter.PDINV:Matrix is not positive definite in pdinv, adding jitter.PDINV: Jitter failed using SVD.
+LOGDET: Matrix is not positive definite in pdinv, adding jitter
+LOGDET: Matrix is not positive definite in pdinv, adding jitter
+LOGDET: Matrix is not positive definite in pdinv, adding jitter
+LOGDET: Jitter failed using log(det()).
+...
+PDINV:Matrix is not positive definite in pdinv, adding jitter.PDINV:Matrix is not positive definite in pdinv, adding jitter.PDINV:Matrix is not positive definite in pdinv, adding jitter.PDINV: Jitter failed using SVD.
+LOGDET: Matrix is not positive definite in pdinv, adding jitter
+LOGDET: Matrix is not positive definite in pdinv, adding jitter
+LOGDET: Matrix is not positive definite in pdinv, adding jitter
+LOGDET: Jitter failed using log(det()).
+Value of bound after training is: 812.4782
+The value of beta is: 0.341050804
+Parameters for Partition: 1 and initial invWidth: 3
+Initial bound is -344.716403
+PDINV:Matrix is not positive definite in pdinv, adding jitter.Value of bound after training is: 912.6174
+The value of beta is: 0.348741383
+***************************************
+Selected invWidth is 99.8178
+Which corresponds to initialisation No. 3
+Associated bound is 912.6174
+***************************************

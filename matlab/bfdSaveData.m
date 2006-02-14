@@ -4,6 +4,9 @@ function bfdSaveData(kernelType, dataset, resultType, params, varargin)
   
 % BFD
   
+% VERSION 1.11 IN CVS
+%
+
 % Setting path to store results
 orig_path = pwd;
 result_path = dataset;
@@ -16,29 +19,34 @@ if isequal(resultType, 'partialResults')
   else 
     fprintf(['bfdSaveData: ', msg, '\n']);
   end
-  dataset  = [dataset, datestr(clock,30)];
+  dataString  = [dataset, datestr(clock,30)];
 else
-  cd(result_path);
+  error('SAVEDATA: only partial results can be saved');
 end
 
-if nargin == 4
+% Saving ...
+if nargin > 4
   try
-    % Saving partial parameters
-    save([kernelType{:} '_' dataset '_Error'], 'params');
-  catch
-    fprintf('bfdSaveData: Error when saving, skipping...\n');
-  end  
-else
-  error = varargin{1}; 
-  predY = varargin{2};
-  probY = varargin{3};
-  paramRecord = varargin{4};
-  likeRecord = varargin{5};
-  try
+    err = varargin{1}; 
+    predY = varargin{2};
+    probY = varargin{3};
+    paramRecord = varargin{4};
+    likeRecord = varargin{5};
+    optimset = varargin{6};
+    modSpecs = varargin{7};
+    partitions = varargin{8};
+    trialWidths = varargin{9};
+    selPart = varargin{10}(1);
+    selInvW = varargin{10}(2);
+    
+    partitionStr = num2str(selPart);
+    invWidthStr = num2str(selInvW);
     % Saving final selection, error, among others
-    save([kernelType{:} '_' dataset '_Error'], ...
-                          'error', 'predY', 'probY', ...
-                          'params', 'paramRecord', 'likeRecord');
+    save([kernelType{:}, '_', dataString, '-par-', partitionStr, ...
+         '-invW-', invWidthStr, '.mat'], 'err', 'predY', ...
+         'probY', 'paramRecord', 'likeRecord', 'kernelType', ...
+         'optimset', 'modSpecs', 'partitions', 'trialWidths', ...
+         'selPart', 'selInvW');
   catch
     fprintf('Error when saving, skipping...\n');
   end  

@@ -4,6 +4,9 @@ function Ltheta = bfdBound(model)
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
+
 % Computes the bound of the logmarginal likelihood
 % Prior over Beta is included
 [invSigma,UC] = pdinv(model.Sigma);

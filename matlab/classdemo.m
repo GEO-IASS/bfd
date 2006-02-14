@@ -2,6 +2,8 @@
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
 
 % Setting optimisation options
 optimset.Display = 'off';

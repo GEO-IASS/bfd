@@ -1,0 +1,19 @@
+Working with dataset: toyARD
+Parameters for Partition: 1 and initial invWidth: 1
+Initial bound is -402.816894
+PDINV:Matrix is not positive definite in pdinv, adding jitter.Value of bound after training is: 1239.6527
+The value of beta is: 0.279123070
+Parameters for Partition: 1 and initial invWidth: 2
+Initial bound is -429.340802
+Value of bound after training is: 1437.3505
+The value of beta is: 0.340670001
+Parameters for Partition: 1 and initial invWidth: 3
+Initial bound is -477.995641
+Warning: Maximum number of iterations has been exceeded
+Value of bound after training is: 1504.0393
+The value of beta is: 0.360067224
+***************************************
+Selected invWidth is 99.9726
+Which corresponds to initialisation No. 3
+Associated bound is 1504.0393
+***************************************

@@ -4,6 +4,8 @@ function params = bfdParamInit(kernelType, numIn, x)
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
   
 % Sets the parameter(1) = 1
 if nargin < 3
@@ -21,7 +23,7 @@ switch strcat(kernelType{:})
   params(1) = negLogLogitTransform(exp(log(x)), 'xtoa'); % linVariance
   params(2) = negLogLogitTransform(exp(1), 'xtoa'); % bias
   params(3) = negLogLogitTransform(exp(1), 'xtoa'); % white
- case 'rbfbiaswhite'
+ case {'rbfbiaswhite', 'sqexp'}
   params(1) = negLogLogitTransform(exp(log(x)), 'xtoa'); % rbfInvWidth
   params(2) = negLogLogitTransform(exp(1), 'xtoa'); % rbfVariance
   params(3) = negLogLogitTransform(exp(1), 'xtoa'); % bias

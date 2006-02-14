@@ -1,5 +1,12 @@
 function bfdTestRecords(dataset, kernelType)
 
+% BFDTESTRECORDS
+
+% BFD
+
+% VERSION 1.11 IN CVS
+%
+
 % This function computes the error rate
 % for a data set. It assumes that the
 % parameters obtained from training the
@@ -31,7 +38,7 @@ end
 
 % Model specifications
 modSpecs.kernelType = kernelType;
-modSpecs.TieARD = length(findstr('ard', strcat(modSpecs.kernelType{:}))) > 0;
+modSpecs.TieARD = length(findstr('ard', strcat(modSpecs.kernelType{:}))) > 1;
 modSpecs.gamma = struct('a', 0.5, 'b', 0.5);
 modSpecs.d = 2;
  
@@ -54,7 +61,7 @@ if toy
   f = K*model.alpha;
   model.bias = mean(f);
   bfdPlot(model, '');
-  fprintf('Press any key\n'); pause;
+  fprintf('Press any key\n'); %pause;
 end
   
 

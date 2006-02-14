@@ -1,0 +1,18 @@
+Working with dataset: bumpy
+Parameters for Partition: 1 and initial invWidth: 1
+Initial bound is -280.529877
+Value of bound after training is: 772.0961
+The value of beta is: 0.310524940
+Parameters for Partition: 1 and initial invWidth: 2
+Initial bound is -309.621227
+Value of bound after training is: 733.2052
+The value of beta is: 0.350967225
+Parameters for Partition: 1 and initial invWidth: 3
+Initial bound is -339.285859
+Value of bound after training is: 693.1896
+The value of beta is: 0.360744693
+***************************************
+Selected invWidth is 5.3426
+Which corresponds to initialisation No. 1
+Associated bound is 772.0961
+***************************************

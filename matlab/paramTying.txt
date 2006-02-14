@@ -1,0 +1,21 @@
+# Note
+# Parameter tying for ARD based kernels is being carried out in the
+# BFD.m function, so it is no longer necessary to keep a reference
+# on how to do it 'manually'. BFD.m contains a function that does
+# the tying 'automatically'.
+#
+# This note was added by TPC on 13-Feb-05 and corresponds to
+# version 1.10 of this toolbox.
+#
+% VERSION 1.11 IN CVS
+%
+
+% $$$
+% $$$ SECTION RELATED TO PARAMETER TYING
+% $$$
+% $$$ model.kern = cmpndTieParameters(model.kern, {[3, 7], [4, 8],  ...
+% $$$                     [5, 9]}); % Titanic - 3D data.
+%model.kern = cmpndTieParameters(model.kern, {[3, 6], [4, 7]}); %2D data
+% $$$
+% $$$
+

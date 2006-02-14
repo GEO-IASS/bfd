@@ -4,6 +4,9 @@ function model = bfdComputeL(model)
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
+
 % Defining label vectors Y1, Y0
 y1 = model.y; 
 y0 = 1-model.y;

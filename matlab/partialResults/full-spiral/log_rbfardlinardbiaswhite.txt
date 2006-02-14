@@ -1,0 +1,20 @@
+>> runToyClass
+Working with dataset: full-spiral
+Parameters for Partition: 1 and initial invWidth: 1
+Initial bound is -267.079539
+Value of bound after training is: 605.9379
+The value of beta is: 0.281727395
+Parameters for Partition: 1 and initial invWidth: 2
+Initial bound is -336.614722
+Warning: Maximum number of iterations has been exceeded
+Value of bound after training is: 637.2291
+The value of beta is: 0.362116735
+Parameters for Partition: 1 and initial invWidth: 3
+Initial bound is -338.129734
+Value of bound after training is: 699.8204
+The value of beta is: 0.362546699
+***************************************
+Selected invWidth is 4999.9999
+Which corresponds to initialisation No. 3
+Associated bound is 699.8204
+***************************************

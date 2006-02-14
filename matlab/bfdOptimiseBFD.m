@@ -4,6 +4,9 @@ function model = bfdOptimiseBFD(model, options)
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
+
 % Monitoring bound
 boundOld = -Inf;
 counter = 1;

@@ -1,0 +1,13 @@
+% Setting optimisation options
+optimset.Display = 'off';
+optimset.TolX = 1e-6;
+optimset.TolFun = 1e-6;
+optimset.DerivativeCheck = 'off'; 
+optimset.MaxFunEvals = 0;
+optimset.MaxIter = 500;   % optimiser iters
+optimset.MaxOuterIter = 1000; % loop iters
+optimset.Bound = 'off';
+optimset.TolBound = 1e-6;
+optimset.TolBeta = 1e-6;
+optimset.TolTheta = 1e-6;
+options = setOptions(optimset);

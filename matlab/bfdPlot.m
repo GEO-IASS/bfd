@@ -4,6 +4,8 @@ function bfdPlot(model, titleStrng, kernelType, dataset, axHandle)
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
 
 % Set format parameters for the plot
 markerSize = 10;

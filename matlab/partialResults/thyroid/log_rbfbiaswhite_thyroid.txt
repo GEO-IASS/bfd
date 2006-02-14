@@ -1,0 +1,70 @@
+>> demClass
+Working with dataset: thyroid
+Parameters for Partition: 1 and initial invWidth: 1
+Initial bound is -193.657718
+Value of bound after training is: 480.3112
+The value of beta is: 0.278529611
+Parameters for Partition: 1 and initial invWidth: 2
+Initial bound is -209.426089
+Value of bound after training is: 531.0096
+The value of beta is: 0.336650379
+Parameters for Partition: 1 and initial invWidth: 3
+Initial bound is -235.029957
+Value of bound after training is: 538.6412
+The value of beta is: 0.352237926
+Parameters for Partition: 2 and initial invWidth: 1
+Initial bound is -193.298925
+Value of bound after training is: 469.1010
+The value of beta is: 0.271138004
+Parameters for Partition: 2 and initial invWidth: 2
+Initial bound is -209.018044
+Value of bound after training is: 527.8010
+The value of beta is: 0.335799213
+Parameters for Partition: 2 and initial invWidth: 3
+Initial bound is -234.878991
+Value of bound after training is: 538.9916
+The value of beta is: 0.352467321
+Parameters for Partition: 3 and initial invWidth: 1
+Initial bound is -194.285616
+Value of bound after training is: 478.2286
+The value of beta is: 0.281296018
+Parameters for Partition: 3 and initial invWidth: 2
+Initial bound is -210.930488
+Value of bound after training is: 530.3576
+The value of beta is: 0.338154213
+Parameters for Partition: 3 and initial invWidth: 3
+Initial bound is -235.790550
+Value of bound after training is: 539.5234
+The value of beta is: 0.353014997
+Parameters for Partition: 4 and initial invWidth: 1
+Initial bound is -194.050628
+Value of bound after training is: 473.3936
+The value of beta is: 0.277164755
+Parameters for Partition: 4 and initial invWidth: 2
+Initial bound is -210.595976
+Value of bound after training is: 533.6174
+The value of beta is: 0.338115307
+Parameters for Partition: 4 and initial invWidth: 3
+Initial bound is -234.969880
+Value of bound after training is: 539.0378
+The value of beta is: 0.352607659
+Parameters for Partition: 5 and initial invWidth: 1
+Initial bound is -194.463644
+Value of bound after training is: 483.7555
+The value of beta is: 0.283506481
+Parameters for Partition: 5 and initial invWidth: 2
+Initial bound is -210.776231
+Value of bound after training is: 533.5180
+The value of beta is: 0.338597829
+Parameters for Partition: 5 and initial invWidth: 3
+Initial bound is -235.125112
+Value of bound after training is: 540.2502
+The value of beta is: 0.352712470
+***************************************
+Selected invWidth is -0.7534
+Which corresponds to initialisation No. 3
+***************************************
+Loading training & test data
+Making predictions & computing Prediction error
+Errors were computed.
+Average error rate = 0.0545 with std = 0.0241

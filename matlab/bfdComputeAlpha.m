@@ -4,6 +4,9 @@ function model = bfdComputeAlpha(model)
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
+
 % Computing projected means and alpha coeffs.
 m1 = model.kern.Kstore*model.y/sum(model.y);
 m0 = model.kern.Kstore*(1-model.y)/sum(1-model.y);

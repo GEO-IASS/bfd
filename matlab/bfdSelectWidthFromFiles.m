@@ -1,5 +1,12 @@
 function [params, selection] = bfdSelectWidthFromFiles(dataset, kernelType)
 
+% BFDSELECTWIDTHFROMFILES
+
+% BFD
+
+% VERSION 1.11 IN CVS
+%
+
 % Moving to the data repository
 orig_path = pwd;
 try 

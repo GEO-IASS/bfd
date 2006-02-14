@@ -1,0 +1,54 @@
+ In logdet at 34
+  In logdet at 34
+  In logdet at 34
+  In bfdKernelObjective at 18
+  In scg at 131
+  In bfdOptimiseBFD at 41
+  In bfdTrainModel at 51
+  In demClass at 40
+Maximum number of iterations has been exceeded
+Value of bound after training is: 449.9255
+The value of beta is: 0.235598774
+Parameters for Partition: 3 and initial invWidth: 2
+Initial bound is -213.929402
+PDINV:Matrix is not positive definite in pdinv, adding jitter.Value of bound after training is: 525.1117
+The value of beta is: 0.290331894
+Parameters for Partition: 3 and initial invWidth: 3
+Initial bound is -214.546855
+Value of bound after training is: 540.5274
+The value of beta is: 0.305854583
+Parameters for Partition: 4 and initial invWidth: 1
+Initial bound is -209.949333
+Maximum number of iterations has been exceeded
+Value of bound after training is: 461.0310
+The value of beta is: 0.242284364
+Parameters for Partition: 4 and initial invWidth: 2
+Initial bound is -214.340344
+Value of bound after training is: 521.9913
+The value of beta is: 0.292997243
+Parameters for Partition: 4 and initial invWidth: 3
+Initial bound is -214.884708
+PDINV:Matrix is not positive definite in pdinv, adding jitter.Value of bound after training is: 537.7404
+The value of beta is: 0.308585678
+Parameters for Partition: 5 and initial invWidth: 1
+Initial bound is -210.545497
+PDINV:Matrix is not positive definite in pdinv, adding jitter.PDINV:Matrix is not positive definite in pdinv, adding jitter.Maximum number of iterations has been exceeded
+Value of bound after training is: 465.3574
+The value of beta is: 0.242487304
+Parameters for Partition: 5 and initial invWidth: 2
+Initial bound is -215.479869
+PDINV:Matrix is not positive definite in pdinv, adding jitter.Value of bound after training is: 507.4369
+The value of beta is: 0.295251291
+Parameters for Partition: 5 and initial invWidth: 3
+Initial bound is -216.188093
+Value of bound after training is: 536.7095
+The value of beta is: 0.310804259
+***************************************
+Selected invWidth is 10.5697
+Which corresponds to initialisation No. 3
+Associated bound is 536.7095
+***************************************
+Loading training & test data
+Making predictions & computing Prediction error
+Errors were computed.
+Average error rate = 0.2243 with std = 0.0026

@@ -4,5 +4,8 @@ function model = bfdUpdateSigma(model)
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
+
 model.Sigma = pdinv(pdinv(model.kern.Kstore) ...
                    + model.beta*model.L);

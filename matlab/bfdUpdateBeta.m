@@ -4,6 +4,9 @@ function model = bfdUpdateBeta(model)
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
+
 % Project training data
 K = kernCompute(model.kern, model.X, model.X);
 f = K*model.alpha;
@@ -29,6 +32,7 @@ sigbar1 = sum(v1);
 % Applying update equations, along prior over beta
 a = model.gamma.a;
 b = model.gamma.b;
-model.beta = length(model.y + 2*a - 2)/(sigbar1 + sigbar0 + 2*b);
+N = length(model.y);
+model.beta = (N + 2*a - 2)/(sigbar1 + sigbar0 + 2*b);
 
 

@@ -6,6 +6,9 @@ function [paramRecord, likeRecord]  = ...
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
+
 % Setting constants
 nPartitions = length(partitions);
 nTrialWidths = length(trialWidths);
@@ -39,7 +42,7 @@ for it = partitions
     if ~isreal(trialWidths(jit))
       fprintf('inverseWidth is complex\n');
     end
-    numIn = size(trainX{1},2);
+    numIn = size(X,2);
     params = bfdParamInit(modSpecs.kernelType, numIn, trialWidths(jit));
     model.kern = kernExpandParam(model.kern, params);
     % Resetting prior and posterior covariance kernels
@@ -61,9 +64,9 @@ for it = partitions
     partialInfo.info = struct('partition', partitions(itCntr), ...
                               'width', trialWidths(jit), 'it', it, 'jit', jit);
     
-    % Use these lines only if you want to save partial results
-    bfdSaveData(modSpecs.kernelType, [dataset], ...
-             'partialResults', partialInfo);
+% $$$     % Use these lines only if you want to save partial results
+% $$$     bfdSaveData(modSpecs.kernelType, dataset, ...
+% $$$              'partialResults', partialInfo);
   end
 end
 

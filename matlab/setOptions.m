@@ -4,6 +4,9 @@ function options = setOptions(optimset)
   
 % BFD
   
+% VERSION 1.11 IN CVS
+%
+
 % Constants
 defaultTolBound = 1e-6;
 defaultBound = 'off';

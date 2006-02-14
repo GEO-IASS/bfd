@@ -1,0 +1,25 @@
+  In bfdKernelObjective at 18
+  In scg at 131
+  In bfdOptimiseBFD at 41
+  In bfdTrainModel at 51
+  In demClass at 40
+Maximum number of iterations has been exceeded
+Value of bound after training is: 1604.0904
+The value of beta is: 0.275302859
+Parameters for Partition: 5 and initial invWidth: 2
+Initial bound is -555.751184
+PDINV:Matrix is not positive definite in pdinv, adding jitter.Value of bound after training is: 1514.1314
+The value of beta is: 0.334063631
+Parameters for Partition: 5 and initial invWidth: 3
+Initial bound is -620.882981
+PDINV:Matrix is not positive definite in pdinv, adding jitter.Value of bound after training is: 1568.8772
+The value of beta is: 0.359821357
+***************************************
+Selected invWidth is -7.7745
+Which corresponds to initialisation No. 1
+Associated bound is 1604.0904
+***************************************
+Loading training & test data
+Making predictions & computing Prediction error
+Errors were computed.
+Average error rate = 0.4329 with std = 0.0478

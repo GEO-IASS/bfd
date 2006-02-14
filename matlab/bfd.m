@@ -4,6 +4,9 @@ function [model, K] = bfd(X, Y, modSpecs, params, beta)
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
+
 % Setting mandatory fields
 model.X = X;
 model.y = Y;

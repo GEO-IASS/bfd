@@ -4,6 +4,9 @@ function g = bfdCovarianceGradient(invK, postK)
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
+
 % invK is the inverted Kernel
 g = -invK + invK*(postK)*invK;
 g = g*.5;

@@ -4,6 +4,9 @@ function bfdTestToy(dataset, kernelType)
   
 % BFD 
 
+% VERSION 1.11 IN CVS
+%
+
 % Model specifications
 modSpecs.kernelType = kernelType;
 modSpecs.TieARD = length(findstr('ard', strcat(modSpecs.kernelType{:}))) > 0;

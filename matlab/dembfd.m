@@ -2,6 +2,9 @@
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
+
 % Setting Optimisation options
 optimset.Display = 'off';
 optimset.TolX = 1e-6;
@@ -19,11 +22,11 @@ options = setOptions(optimset);
 % Model specifications (kernel and param. tying)
 modSpecs.gamma = struct('a', 0.5, 'b', 0.5);
 modSpecs.d = 2;
-modSpecs.kernelType = {'rbf', 'bias', 'white'};
-modSpecs.TieARD = findstr('ard', strcat(modSpecs.kernelType{:})) > 0;
+modSpecs.kernelType = {'rbfard', 'linard', 'bias', 'white'};
+modSpecs.TieARD = findstr('ard', strcat(modSpecs.kernelType{:})) > 1;
 
 % Loading data set
-dataset = 'full-spiral';
+dataset = 'heart';
 fprintf('Working with data-set %s\n', dataset);
 [X, y] = bfdLoadData(dataset, 'train', 1);
 

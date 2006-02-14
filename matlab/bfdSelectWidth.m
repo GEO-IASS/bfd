@@ -4,6 +4,9 @@ function [params, selection] = bfdSelectWidth(paramRecord, likeRecord)
 
 % BFD
   
+% VERSION 1.11 IN CVS
+%
+
 % Verifying that likelihood & param's matrices 
 % have the same dimensions
 if size(paramRecord) ~= size(likeRecord)

@@ -1,0 +1,74 @@
+ >> demClass
+Working with dataset: heart
+Parameters for Partition: 1 and initial invWidth: 1
+Initial bound is -311.814003
+Value of bound after training is: 653.6003
+The value of beta is: 0.340403645
+Parameters for Partition: 1 and initial invWidth: 2
+Initial bound is -329.034389
+Maximum number of iterations has been exceeded
+Value of bound after training is: 730.2499
+The value of beta is: 0.357299291
+Parameters for Partition: 1 and initial invWidth: 3
+Initial bound is -329.274880
+Value of bound after training is: 623.9985
+The value of beta is: 0.356369564
+Parameters for Partition: 2 and initial invWidth: 1
+Initial bound is -310.879938
+Value of bound after training is: 597.7408
+The value of beta is: 0.341443807
+Parameters for Partition: 2 and initial invWidth: 2
+Initial bound is -328.912369
+Value of bound after training is: 741.7957
+The value of beta is: 0.358066092
+Parameters for Partition: 2 and initial invWidth: 3
+Initial bound is -329.129386
+Maximum number of iterations has been exceeded
+Value of bound after training is: 741.7148
+The value of beta is: 0.357945830
+Parameters for Partition: 3 and initial invWidth: 1
+Initial bound is -311.336850
+Value of bound after training is: 617.1935
+The value of beta is: 0.337032790
+Parameters for Partition: 3 and initial invWidth: 2
+Initial bound is -328.979638
+Value of bound after training is: 740.2839
+The value of beta is: 0.356028874
+Parameters for Partition: 3 and initial invWidth: 3
+Initial bound is -329.339345
+Value of bound after training is: 740.3353
+The value of beta is: 0.356094083
+Parameters for Partition: 4 and initial invWidth: 1
+Initial bound is -311.867643
+Value of bound after training is: 595.0648
+The value of beta is: 0.342257953
+Parameters for Partition: 4 and initial invWidth: 2
+Initial bound is -329.096877
+Value of bound after training is: 743.1299
+The value of beta is: 0.359964701
+Parameters for Partition: 4 and initial invWidth: 3
+Initial bound is -329.219786
+Maximum number of iterations has been exceeded
+Value of bound after training is: 650.3880
+The value of beta is: 0.359000149
+Parameters for Partition: 5 and initial invWidth: 1
+Initial bound is -310.121632
+Value of bound after training is: 655.8881
+The value of beta is: 0.341994803
+Parameters for Partition: 5 and initial invWidth: 2
+Initial bound is -328.698585
+Value of bound after training is: 700.6497
+The value of beta is: 0.358979455
+Parameters for Partition: 5 and initial invWidth: 3
+Initial bound is -328.920113
+Value of bound after training is: 647.7285
+The value of beta is: 0.358565665
+***************************************
+Selected invWidth is 10.7988
+Which corresponds to initialisation No. 3
+Associated bound is 740.3353
+***************************************
+Loading training & test data
+Making predictions & computing Prediction error
+Errors were computed.
+Average error rate = 0.1696 with std = 0.0373

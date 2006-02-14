@@ -4,6 +4,9 @@ function midterm = bfdMidProduct(model, L)
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
+
 % Computing deltaYhat
 y1 = model.y;
 y0 = 1 - model.y;

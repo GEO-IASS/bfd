@@ -4,6 +4,9 @@ function f = bfdKernelObjective(params, model)
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
+
 % Verifying parameters are fine
 if any(isnan(params))
   warning('Parameter is NaN');

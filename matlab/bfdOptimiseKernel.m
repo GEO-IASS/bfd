@@ -4,6 +4,9 @@ function model = bfdOptimiseKernel(model, options, optiMethod);
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
+
 % Setting default values for optimisation 
 % (in case they have not been given)
 if nargin < 2

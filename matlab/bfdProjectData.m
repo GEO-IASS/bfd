@@ -5,6 +5,9 @@ function [trainF, testF, model] = bfdProjectData(trainX, trainY, testX, ...
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
+
 %Creating a model with training data 
 [model, K] = bfd(trainX, trainY, modSpecs, ...
                            params(1:end-1), params(end));

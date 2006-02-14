@@ -4,6 +4,9 @@ function [cellX, cellY] = bfdLoadData(name, type, Ninst)
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
+
 % Moving to the data repository
 orig_path = pwd;
 try 

@@ -2,6 +2,9 @@
 
 % BFD
 
+% VERSION 1.11 IN CVS
+%
+
 % Setting optimisation options
 optimset.Display = 'off';
 optimset.TolX = 1e-6;
@@ -66,8 +69,8 @@ for it = 1:length(fileNames)
   bfdPlot(newModel, 'Using original code', ...
            modSpecs.kernelType, fileNames{it});
   
-  % Uncomment this line if you want to save the final results
-  bfdSaveData(modSpecs.kernelType, fileNames{it}, 'toyResults', params); 
+% $$$   % Uncomment this line if you want to save the final results
+% $$$   bfdSaveData(modSpecs.kernelType, fileNames{it}, 'toyResults', params); 
  
 end % End of For loop
 
