@@ -1,0 +1,848 @@
+#
+# This file gives detail on the way that parameters were selected. 
+#
+
+
+# Please note that first we give the details of the partitions and
+# initialisations used to train the models. 
+
+
+# RBF kernel
+KERN="{'rbf', 'bias', 'white'}"
+PARTITIONS=`seq -s: 1 5`
+INVWIDTHPARAMS=0.0001:0.001:0.01:1:10:100:1000:10000
+
+# ARD-based kernel
+KERN="{'rbfard', 'linard', 'bias', 'white'}"
+PARTITIONS=`seq -s: 1 5`
+INVWIDTHPARAMS=0.001:1:10
+
+
+
+###########################################################################
+### Experiments with kernel {'rbf', 'bias', 'white'}
+###########################################################################
+
+---------------------------
+1. BANANA
+---------------------------
+>> selectParamsAndProject(dataset, kernelType, dataType, [], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 100.0000 and partition 2.0000
+***************************************
+Selected train invWidth is 1.9079
+Which corresponds to initialisation with invWidth = 100.0000
+And was obtained from training partition 2.0000
+Associated bound is 1423.6035
+***************************************
+Loading training & test data
+Working with dataset: banana
+Working with kernel: rbfbiaswhite
+After exp. parameters are: 6.7390
+After exp. parameters are: 0.0000
+After exp. parameters are: 2.7438
+After exp. parameters are: 0.0066
+Beta is 0.3623
+Associated bound: 1423.6035
+Other info: partition=2, invWidth=100.0000
+
+---------------------------
+2. BREAST-CANCER
+---------------------------
+Note: we discarded initialisations [10, 100] 
+
+>> selectParamsAndProject(dataset, kernelType, dataType, [10, 100], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 1.0000 and partition 5.0000
+***************************************
+Selected train invWidth is -3.4248
+Which corresponds to initialisation with invWidth = 1.0000
+And was obtained from training partition 5.0000
+Associated bound is 731.4395
+***************************************
+Loading training & test data
+Working with dataset: breast-cancer
+Working with kernel: rbfbiaswhite
+After exp. parameters are: 0.0326
+After exp. parameters are: 0.0000
+After exp. parameters are: 2.7782
+After exp. parameters are: 0.0058
+Beta is 0.3567
+Associated bound: 731.4395
+Other info: partition=5, invWidth=1.0000
+
+---------------------------
+3. DIABETIS
+---------------------------
+Note: we discarded initialisations [100, 1000, 10000] 
+
+>> selectParamsAndProject(dataset, kernelType, dataType, [100, 1000, 10000], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 1.0000 and partition  3
+***************************************
+Selected train invWidth is -1.9964
+Which corresponds to initialisation with invWidth = 1
+And was obtained from training partition 0003
+Associated bound is 1670.7795
+***************************************
+Loading training & test data
+Working with dataset: diabetis
+After exp. parameters are: 0.1358
+After exp. parameters are: 0.0000
+After exp. parameters are: 2.7588
+After exp. parameters are: 0.0066
+Beta is 0.3604
+Associated bound: 1670.7795
+Other info: partition=3, invWidth=1.0000
+
+---------------------------
+4. GERMAN
+---------------------------
+Note: we discarded initialisations [10, 100, 1000, 10000]
+
+>> selectParamsAndProject(dataset, kernelType, dataType, [10, 100, 1000, 10000], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 1.0000 and partition  1
+***************************************
+Selected train invWidth is -2.0859
+Which corresponds to initialisation with invWidth = 1
+And was obtained from training partition 0001
+Associated bound is 2163.0204
+***************************************
+Loading training & test data
+Working with dataset: german
+After exp. parameters are: 0.1242
+After exp. parameters are: 0.0000
+After exp. parameters are: 2.7267
+After exp. parameters are: 0.0108
+Beta is 0.3646
+Associated bound: 2163.0204
+Other info: partition=1, invWidth=1.0000
+
+---------------------------
+5. HEART
+---------------------------
+Note: we discarded initialisations [100, 1000, 10000]
+
+>> selectParamsAndProject(dataset, kernelType, dataType, [100, 1000, 10000], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 1.0000 and partition 5.0000
+***************************************
+Selected train invWidth is -3.7290
+Which corresponds to initialisation with invWidth = 1.0000
+And was obtained from training partition 5.0000
+Associated bound is 615.5069
+***************************************
+Loading training & test data
+Working with dataset: heart
+After exp. parameters are: 0.0240
+After exp. parameters are: 0.0002
+After exp. parameters are: 2.7594
+After exp. parameters are: 0.0059
+Beta is 0.3572
+Associated bound: 615.5069
+Other info: partition=5, invWidth=1.0000
+
+---------------------------
+6. IMAGE
+---------------------------
+>> selectParamsAndProject(dataset, kernelType,  dataType, [], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 100.0000 and partition 2.0000
+***************************************
+Selected train invWidth is 3.6531
+Which corresponds to initialisation with invWidth = 100.0000
+And was obtained from training partition 2.0000
+Associated bound is 4618.7331
+***************************************
+Loading training & test data
+Working with dataset: image
+Working with kernel: rbfbiaswhite
+After exp. parameters are: 38.5957
+After exp. parameters are: 0.0000
+After exp. parameters are: 2.7226
+After exp. parameters are: 0.0068
+Beta is 0.3660
+Associated bound: 4618.7331
+Other info: partition=2, invWidth=100.0000
+
+---------------------------
+7. RINGNORM
+---------------------------
+>> selectParamsAndProject(dataset, kernelType, dataType, [], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 1.0000 and partition 3.0000
+***************************************
+Selected train invWidth is -1.8700
+Which corresponds to initialisation with invWidth = 1.0000
+And was obtained from training partition 3.0000
+Associated bound is 1577.2905
+***************************************
+Loading training & test data
+Working with dataset: ringnorm
+Working with kernel: rbfbiaswhite
+After exp. parameters are: 0.1541
+After exp. parameters are: 0.0001
+After exp. parameters are: 2.7392
+After exp. parameters are: 0.0044
+Beta is 0.3600
+Associated bound: 1577.2905
+Other info: partition=3, invWidth=1.0000
+
+---------------------------
+8. FLARE-SOLAR
+---------------------------
+Note: we discarded initialisations [100, 1000, 10000]
+
+>> selectParamsAndProject(dataset, kernelType, dataType, [100, 1000, 10000], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 10.0000 and partition  3
+***************************************
+Selected train invWidth is 0.6055
+Which corresponds to initialisation with invWidth = 10
+And was obtained from training partition 0003
+Associated bound is 2000.2710
+***************************************
+Loading training & test data
+Working with dataset: flare-solar
+After exp. parameters are: 1.8322
+After exp. parameters are: 0.0000
+After exp. parameters are: 2.7767
+After exp. parameters are: 0.0116
+Beta is 0.3579
+Associated bound: 2000.2710
+Other info: partition=3, invWidth=10.0000
+
+---------------------------
+9. SPLICE
+---------------------------
+# The parameters used to obtained this result were obtained with 
+# increased tolerances on the optimisation parameters, ie. the 
+# vector OPTIONS for scg.
+
+Note: we discarded initialisations [1, 10, 100, 1000, 10000]
+
+>> selectParamsAndProject(dataset, kernelType, dataType, [1, 10, 100, 1000, 10000], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 0.0100 and partition  5
+***************************************
+Selected train invWidth is -3.0942
+Which corresponds to initialisation with invWidth = 1.000000e-02
+And was obtained from training partition 0005
+Associated bound is 2205.1684
+***************************************
+Loading training & test data
+Working with dataset: splice
+After exp. parameters are: 0.0453
+After exp. parameters are: 0.0002
+After exp. parameters are: 3.2569
+After exp. parameters are: 0.0238
+Beta is 0.3043
+Associated bound: 2205.1684
+Other info: partition=5, invWidth=0.0100
+
+---------------------------
+10. THYROID
+---------------------------
+Note: we discarded initialisations [1000, 10000]
+
+>> selectParamsAndProject(dataset, kernelType, dataType, [1000, 10000], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 10.0000 and partition 3.0000
+***************************************
+Selected train invWidth is -1.0101
+Which corresponds to initialisation with invWidth = 10.0000
+And was obtained from training partition 3.0000
+Associated bound is 492.4164
+***************************************
+Loading training & test data
+Working with dataset: thyroid
+Working with kernel: rbfbiaswhite
+After exp. parameters are: 0.3642
+After exp. parameters are: 0.0002
+After exp. parameters are: 2.8006
+After exp. parameters are: 0.0064
+Beta is 0.3502
+Associated bound: 492.4164
+Other info: partition=3, invWidth=10.0000
+
+---------------------------
+11. TITANIC
+---------------------------
+Note: we discarded initialisations [100, 1000, 10000]
+
+>> selectParamsAndProject(dataset, kernelType, dataType, [100, 1000, 10000], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 10.0000 and partition  1
+***************************************
+Selected train invWidth is -1.8009
+Which corresponds to initialisation with invWidth = 10
+And was obtained from training partition 0001
+Associated bound is 476.2847
+***************************************
+Loading training & test data
+Working with dataset: titanic
+After exp. parameters are: 0.1651
+After exp. parameters are: 0.0001
+After exp. parameters are: 3.0190
+After exp. parameters are: 0.0088
+Beta is 0.3268
+Associated bound: 476.2847
+Other info: partition=1, invWidth=10.0000
+
+---------------------------
+12. TWONORM
+---------------------------
+Note: we discarded initialisations [10, 100, 1000, 10000]
+
+>> selectParamsAndProject(dataset, kernelType, dataType, [10, 100, 1000, 10000], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 1.0000 and partition 1.0000
+***************************************
+Selected train invWidth is -4.4592
+Which corresponds to initialisation with invWidth = 1.0000
+And was obtained from training partition 1.0000
+Associated bound is 1453.5371
+***************************************
+Loading training & test data
+Working with dataset: twonorm
+After exp. parameters are: 0.0116
+After exp. parameters are: 0.0003
+After exp. parameters are: 2.7331
+After exp. parameters are: 0.0061
+Beta is 0.3602
+Associated bound: 1453.5371
+Other info: partition=1, invWidth=1.0000
+
+---------------------------
+12. WAVEFORM
+---------------------------
+Note: we discarded initialisations [10, 100, 1000, 10000]
+
+>> selectParamsAndProject(dataset, kernelType, dataType, [10, 100, 1000, 10000], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 1.0000 and partition 2.0000
+***************************************
+Selected train invWidth is -4.1759
+Which corresponds to initialisation with invWidth = 1.0000
+And was obtained from training partition 2.0000
+Associated bound is 1265.8631
+***************************************
+Loading training & test data
+Working with dataset: waveform
+After exp. parameters are: 0.0154
+After exp. parameters are: 0.0001
+After exp. parameters are: 2.7330
+After exp. parameters are: 0.0098
+Beta is 0.3593
+Associated bound: 1265.8631
+Other info: partition=2, invWidth=1.0000
+
+
+###########################################################################
+### Experiments with kernel {'rbfard', 'linard', 'bias', 'white'}
+###########################################################################
+
+---------------------------
+1. BANANA
+---------------------------
+>> selectParamsAndProject(dataset, kernelType, dataType, [], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 10.0000 and partition 1.0000
+***************************************
+Selected train invWidth is 6.2221
+Which corresponds to initialisation with invWidth = 10.0000
+And was obtained from training partition 1.0000
+Associated bound is 1018.6724
+***************************************
+Loading training & test data
+Working with dataset: banana
+Working with kernel: rbfardlinardbiaswhite
+After exp. parameters are: 503.7402
+After exp. parameters are: 0.0001
+After exp. parameters are: 2.7751
+After exp. parameters are: 0.0181
+After exp. parameters are: 0.0000
+After exp. parameters are: 0.0100
+After exp. parameters are: 0.0161
+Beta is 0.3566
+Associated bound: 1018.6724
+Other info: partition=1, invWidth=10.0000
+
+---------------------------
+2. BREAST-CANCER
+---------------------------
+>> selectParamsAndProject(dataset, kernelType, dataType, [], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 10.0000 and parti
+tion 2.0000
+***************************************
+Selected train invWidth is 3.4692
+Which corresponds to initialisation with invWidth = 10.0000
+And was obtained from training partition 2.0000
+Associated bound is 555.6688
+***************************************
+Loading training & test data
+Working with dataset: breast-cancer
+Working with kernel: rbfardlinardbiaswhite
+After exp. parameters are: 32.1114
+After exp. parameters are: 0.0002
+After exp. parameters are: 2.7468
+After exp. parameters are: 0.0139
+After exp. parameters are: 0.0000
+After exp. parameters are: 0.2904
+After exp. parameters are: 0.2183
+After exp. parameters are: 1.0862
+After exp. parameters are: 2.0000
+After exp. parameters are: 1.0831
+After exp. parameters are: 2.3835
+After exp. parameters are: 0.2722
+After exp. parameters are: 0.2485
+After exp. parameters are: 1.3978
+Beta is 0.3591
+Associated bound: 555.6688
+Other info: partition=2, invWidth=10.0000
+
+---------------------------
+3. DIABETIS
+---------------------------
+>> selectParamsAndProject(dataset, kernelType, dataType, [], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 10.0000 and partition 1.0000
+***************************************
+Selected train invWidth is 4.5072
+Which corresponds to initialisation with invWidth = 10.0000
+And was obtained from training partition 1.0000
+Associated bound is 1339.3918
+***************************************
+Loading training & test data
+Working with dataset: diabetis
+Working with kernel: rbfardlinardbiaswhite
+After exp. parameters are: 90.6690
+After exp. parameters are: 0.0066
+After exp. parameters are: 2.7286
+After exp. parameters are: 0.0068
+After exp. parameters are: 0.0000
+After exp. parameters are: 0.9366
+After exp. parameters are: 3.7776
+After exp. parameters are: 0.2536
+After exp. parameters are: 0.1766
+After exp. parameters are: 0.1844
+After exp. parameters are: 1.5722
+After exp. parameters are: 0.9568
+After exp. parameters are: 0.4358
+Beta is 0.3620
+Associated bound: 1339.3918
+Other info: partition=1, invWidth=10.0000
+
+---------------------------
+4. GERMAN
+---------------------------
+>> selectParamsAndProject(dataset, kernelType, dataType, [], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 10.0000 and parti
+tion 4.0000
+***************************************
+Selected train invWidth is 3.0792
+Which corresponds to initialisation with invWidth = 10.0000
+And was obtained from training partition 4.0000
+Associated bound is 1691.0592
+***************************************
+Loading training & test data
+Working with dataset: german
+Working with kernel: rbfardlinardbiaswhite
+After exp. parameters are: 21.7416
+After exp. parameters are: 0.0014
+After exp. parameters are: 2.7240
+After exp. parameters are: 0.0197
+After exp. parameters are: 0.0000
+After exp. parameters are: 8.3633
+After exp. parameters are: 2.9920
+After exp. parameters are: 4.6008
+After exp. parameters are: 0.9162
+After exp. parameters are: 0.9235
+After exp. parameters are: 2.1058
+After exp. parameters are: 1.1498
+After exp. parameters are: 1.3987
+After exp. parameters are: 1.2606
+After exp. parameters are: 1.1125
+After exp. parameters are: 0.8431
+After exp. parameters are: 1.6208
+After exp. parameters are: 1.0291
+After exp. parameters are: 1.9971
+After exp. parameters are: 0.7484
+After exp. parameters are: 0.5664
+After exp. parameters are: 0.6492
+After exp. parameters are: 0.8379
+After exp. parameters are: 0.7825
+After exp. parameters are: 1.2893
+Beta is 0.3626
+Associated bound: 1691.0592
+Other info: partition=4, invWidth=10.0000
+
+---------------------------
+5. HEART
+---------------------------
+>> selectParamsAndProject(dataset, kernelType, dataType, [], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 10.0000 and partition 4.0000
+***************************************
+Selected train invWidth is 3.6734
+Which corresponds to initialisation with invWidth = 10.0000
+And was obtained from training partition 4.0000
+Associated bound is 483.9823
+***************************************
+Loading training & test data
+Working with dataset: heart
+Working with kernel: rbfardlinardbiaswhite
+After exp. parameters are: 39.3847
+After exp. parameters are: 0.0064
+After exp. parameters are: 2.7517
+After exp. parameters are: 0.0065
+After exp. parameters are: 0.0000
+After exp. parameters are: 0.0542
+After exp. parameters are: 1.1112
+After exp. parameters are: 2.7824
+After exp. parameters are: 0.4632
+After exp. parameters are: 0.7274
+After exp. parameters are: 0.1555
+After exp. parameters are: 1.0515
+After exp. parameters are: 1.8356
+After exp. parameters are: 1.6077
+After exp. parameters are: 3.0466
+After exp. parameters are: 0.8962
+After exp. parameters are: 5.7927
+After exp. parameters are: 5.1194
+Beta is 0.3556
+Associated bound: 483.9823
+Other info: partition=4, invWidth=10.0000
+
+---------------------------
+6. IMAGE
+---------------------------
+Note: we discarded initialisations [1]
+
+>> processROCdata(dataset, dataType, kernelType);
+>> selectParamsAndProject(dataset, kernelType, dataType, [1], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 10.0000 and partition 1.0000
+***************************************
+Selected train invWidth is 2.3102
+Which corresponds to initialisation with invWidth = 10.0000
+And was obtained from training partition 1.0000
+Associated bound is 2001.5139
+***************************************
+Loading training & test data
+Working with dataset: image
+Working with kernel: rbfardlinardbiaswhite
+After exp. parameters are: 10.0768
+After exp. parameters are: 0.0007
+After exp. parameters are: 2.7258
+After exp. parameters are: 0.0502
+After exp. parameters are: 0.0000
+After exp. parameters are: 5.4977
+After exp. parameters are: 1.5867
+After exp. parameters are: 1.6422
+After exp. parameters are: 1.3693
+After exp. parameters are: 2.0105
+After exp. parameters are: 1.3080
+After exp. parameters are: 2.4281
+After exp. parameters are: 1.5052
+After exp. parameters are: 0.2355
+After exp. parameters are: 7.4767
+After exp. parameters are: 0.1895
+After exp. parameters are: 0.1468
+After exp. parameters are: 0.4061
+After exp. parameters are: 0.1416
+After exp. parameters are: 8.3788
+After exp. parameters are: 0.1321
+After exp. parameters are: 1.3501
+After exp. parameters are: 14.5592
+Beta is 0.3541
+Associated bound: 2001.5139
+Other info: partition=1, invWidth=10.0000
+
+---------------------------
+7. RINGNORM
+---------------------------
+>> selectParamsAndProject(dataset, kernelType, dataType, [], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 1.0000 and partition 3.0000
+***************************************
+Selected train invWidth is -1.9302
+Which corresponds to initialisation with invWidth = 1.0000
+And was obtained from training partition 3.0000
+Associated bound is 1098.9406
+***************************************
+Loading training & test data
+Working with dataset: ringnorm
+Working with kernel: rbfardlinardbiaswhite
+After exp. parameters are: 0.1451
+After exp. parameters are: 0.0005
+After exp. parameters are: 2.7523
+After exp. parameters are: 0.0145
+After exp. parameters are: 0.0000
+After exp. parameters are: 1.4243
+After exp. parameters are: 1.0479
+After exp. parameters are: 1.0467
+After exp. parameters are: 1.6014
+After exp. parameters are: 0.8051
+After exp. parameters are: 1.9195
+After exp. parameters are: 1.2531
+After exp. parameters are: 1.2785
+After exp. parameters are: 0.9524
+After exp. parameters are: 1.1286
+After exp. parameters are: 0.7027
+After exp. parameters are: 0.9636
+After exp. parameters are: 1.3339
+After exp. parameters are: 1.1257
+After exp. parameters are: 0.8233
+After exp. parameters are: 0.9576
+After exp. parameters are: 1.1240
+After exp. parameters are: 1.5555
+After exp. parameters are: 1.0504
+After exp. parameters are: 1.2746
+Beta is 0.3570
+Associated bound: 1098.9406
+Other info: partition=3, invWidth=1.0000
+
+---------------------------
+8. FLARE-SOLAR
+---------------------------
+>> selectParamsAndProject(dataset, kernelType, dataType, [], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 10.0000 and partition 3.0000
+***************************************
+Selected train invWidth is 2.9398
+Which corresponds to initialisation with invWidth = 10.0000
+And was obtained from training partition 3.0000
+Associated bound is 847.7919
+***************************************
+Loading training & test data
+Working with dataset: flare-solar
+Working with kernel: rbfardlinardbiaswhite
+After exp. parameters are: 18.9118
+After exp. parameters are: 0.0000
+After exp. parameters are: 5.8266
+After exp. parameters are: 0.0454
+After exp. parameters are: 0.0000
+After exp. parameters are: 0.4755
+After exp. parameters are: 0.0840
+After exp. parameters are: 1.0278
+After exp. parameters are: 0.1119
+After exp. parameters are: 2.3714
+After exp. parameters are: 7.2311
+After exp. parameters are: 0.1871
+After exp. parameters are: 0.8748
+After exp. parameters are: 8.8568
+Beta is 0.1699
+Associated bound: 847.7919
+Other info: partition=3, invWidth=10.0000
+
+---------------------------
+9. SPLICE 
+---------------------------
+>> selectParamsAndProject(dataset, kernelType, dataType, [], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 10.0000 and partition 5.0000
+***************************************
+Selected train invWidth is 2.3009
+Which corresponds to initialisation with invWidth = 10.0000
+And was obtained from training partition 5.0000
+Associated bound is 1104.0973
+***************************************
+Loading training & test data
+Working with dataset: splice
+Working with kernel: rbfardlinardbiaswhite
+After exp. parameters are: 9.9831
+After exp. parameters are: 0.0009
+After exp. parameters are: 3.7603
+After exp. parameters are: 0.0659
+After exp. parameters are: 0.0000
+After exp. parameters are: 1.8541
+After exp. parameters are: 1.4844
+After exp. parameters are: 1.3972
+After exp. parameters are: 1.4306
+After exp. parameters are: 1.2732
+After exp. parameters are: 1.4059
+After exp. parameters are: 1.3660
+After exp. parameters are: 1.2665
+After exp. parameters are: 1.4230
+After exp. parameters are: 1.3042
+After exp. parameters are: 1.3796
+After exp. parameters are: 1.4691
+After exp. parameters are: 1.6138
+After exp. parameters are: 1.4585
+After exp. parameters are: 1.7084
+After exp. parameters are: 4.4059
+After exp. parameters are: 3.4754
+After exp. parameters are: 4.1234
+After exp. parameters are: 1.8778
+After exp. parameters are: 1.9122
+After exp. parameters are: 3.6119
+After exp. parameters are: 2.0809
+After exp. parameters are: 2.5038
+After exp. parameters are: 1.7841
+After exp. parameters are: 5.4297
+After exp. parameters are: 4.6713
+After exp. parameters are: 1.4290
+After exp. parameters are: 5.3542
+After exp. parameters are: 25.0860
+After exp. parameters are: 12.7819
+After exp. parameters are: 10.9840
+After exp. parameters are: 12.7094
+After exp. parameters are: 4.8324
+After exp. parameters are: 8.7245
+After exp. parameters are: 1.5964
+After exp. parameters are: 3.1339
+After exp. parameters are: 1.6544
+After exp. parameters are: 1.6928
+After exp. parameters are: 1.3878
+After exp. parameters are: 1.5453
+After exp. parameters are: 1.3930
+After exp. parameters are: 1.5299
+After exp. parameters are: 1.4080
+After exp. parameters are: 1.4308
+After exp. parameters are: 1.5831
+After exp. parameters are: 1.3253
+After exp. parameters are: 1.4682
+After exp. parameters are: 1.4032
+After exp. parameters are: 1.8865
+After exp. parameters are: 1.2537
+After exp. parameters are: 1.3615
+After exp. parameters are: 1.2946
+After exp. parameters are: 1.5406
+After exp. parameters are: 1.3464
+After exp. parameters are: 1.3509
+After exp. parameters are: 1.2363
+After exp. parameters are: 1.4813
+After exp. parameters are: 1.4131
+After exp. parameters are: 1.2609
+After exp. parameters are: 1.8813
+Beta is 0.2585
+Associated bound: 1104.0973
+Other info: partition=5, invWidth=10.0000
+
+---------------------------
+10. THYROID 
+---------------------------
+>> selectParamsAndProject(dataset, kernelType, dataType, [], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 1.0000 and partition 5.0000
+***************************************
+Selected train invWidth is 1.0265
+Which corresponds to initialisation with invWidth = 1.0000
+And was obtained from training partition 5.0000
+Associated bound is 332.6567
+***************************************
+Loading training & test data
+Working with dataset: thyroid
+After exp. parameters are: 2.7913
+After exp. parameters are: 0.0009
+After exp. parameters are: 2.9576
+After exp. parameters are: 0.0194
+After exp. parameters are: 0.0000
+After exp. parameters are: 0.0200
+After exp. parameters are: 0.2126
+After exp. parameters are: 0.1045
+After exp. parameters are: 1.3157
+After exp. parameters are: 0.3231
+Beta is 0.3282
+Associated bound: 332.6567
+Other info: partition=5, invWidth=1.0000
+
+---------------------------
+11. TITANIC
+---------------------------
+>> selectParamsAndProject(dataset, kernelType, dataType, [], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 10.0000 and partition 4.0000
+***************************************
+Selected train invWidth is 0.9212
+Which corresponds to initialisation with invWidth = 10.0000
+And was obtained from training partition 4.0000
+Associated bound is 359.5341
+***************************************
+Loading training & test data
+Working with dataset: titanic
+Working with kernel: rbfardlinardbiaswhite
+After exp. parameters are: 2.5122
+After exp. parameters are: 0.0002
+After exp. parameters are: 3.2198
+After exp. parameters are: 0.0187
+After exp. parameters are: 0.0000
+After exp. parameters are: 0.0054
+After exp. parameters are: 0.0309
+After exp. parameters are: 0.1735
+Beta is 0.3050
+Associated bound: 359.5341
+Other info: partition=4, invWidth=10.0000
+
+---------------------------
+12. TWONORM
+---------------------------
+>> selectParamsAndProject(dataset, kernelType, dataType, [], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 1.0000 and partition 1.0000
+***************************************
+Selected train invWidth is -3.9459
+Which corresponds to initialisation with invWidth = 1.0000
+And was obtained from training partition 1.0000
+Associated bound is 1183.5888
+***************************************
+Loading training & test data
+Working with dataset: twonorm
+Working with kernel: rbfardlinardbiaswhite
+After exp. parameters are: 0.0193
+After exp. parameters are: 0.0002
+After exp. parameters are: 2.7368
+After exp. parameters are: 0.0119
+After exp. parameters are: 0.0000
+After exp. parameters are: 1.5372
+After exp. parameters are: 1.0553
+After exp. parameters are: 0.8473
+After exp. parameters are: 1.2264
+After exp. parameters are: 1.1777
+After exp. parameters are: 1.0876
+After exp. parameters are: 0.8203
+After exp. parameters are: 1.2266
+After exp. parameters are: 1.3936
+After exp. parameters are: 0.8858
+After exp. parameters are: 1.6685
+After exp. parameters are: 0.5927
+After exp. parameters are: 0.9264
+After exp. parameters are: 1.1166
+After exp. parameters are: 1.5221
+After exp. parameters are: 1.2542
+After exp. parameters are: 1.5405
+After exp. parameters are: 0.8151
+After exp. parameters are: 1.0774
+After exp. parameters are: 0.9941
+Beta is 0.3579
+Associated bound: 1183.5888
+Other info: partition=1, invWidth=1.0000
+
+---------------------------
+13. WAVEFORM
+---------------------------
+>> selectParamsAndProject(dataset, kernelType, dataType, [], []);
+selParamsFromLikeMatrix: unique selection corresponds to width 10.0000 and partition 3.0000
+***************************************
+Selected train invWidth is 2.3026
+Which corresponds to initialisation with invWidth = 10.0000
+And was obtained from training partition 3.0000
+Associated bound is 1677.8748
+***************************************
+Loading training & test data
+Working with dataset: waveform
+Working with kernel: rbfardlinardbiaswhite
+After exp. parameters are: 10.0000
+After exp. parameters are: 0.0016
+After exp. parameters are: 2.7336
+After exp. parameters are: 0.0016
+After exp. parameters are: 0.0000
+After exp. parameters are: 0.9185
+After exp. parameters are: 0.8487
+After exp. parameters are: 0.5105
+After exp. parameters are: 0.1790
+After exp. parameters are: 0.1272
+After exp. parameters are: 0.0091
+After exp. parameters are: 0.0179
+After exp. parameters are: 9.9319
+After exp. parameters are: 10.8490
+After exp. parameters are: 8.3189
+After exp. parameters are: 5.0016
+After exp. parameters are: 0.1276
+After exp. parameters are: 0.1641
+After exp. parameters are: 0.5547
+After exp. parameters are: 7.4230
+After exp. parameters are: 11.9888
+After exp. parameters are: 12.5294
+After exp. parameters are: 9.2604
+After exp. parameters are: 6.5787
+After exp. parameters are: 0.7052
+After exp. parameters are: 0.9231
+Beta is 0.3134
+Associated bound: 1677.8748
+Other info: partition=3, invWidth=10.0000
+
+------------------------------------------------------------------------
+
+TPC 15-Feb-06
+
+# EOF

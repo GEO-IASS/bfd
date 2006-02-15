@@ -1,0 +1,253 @@
+<html>
+
+<head>
+<title> Optimising kernel parameters and regularisation coefficients - MATLAB Software</title>
+</head>
+
+<h1>Bayesian Fisher's discriminant</h1>
+<body>
+
+This page describes how to use the so-called Bayesian Fisher Discriminant (BFD)  software, which is available for <a href="http://ext.dcs.shef.ac.uk/~u0015/cgi-bin/downloadForm.cgi?toolbox=bfd"> download here </a>. Please note that in the subsequent discussion we will be using these references: <br>
+<ol>
+     <li>T.Peña-Centeno and N. D. Lawrence.  (2006) "Optimising kernel parameters and regularisation coefficients for non-linear discriminant analysis" in Journal of Machine Learning Research, accepted for publication. <br>
+     <li>T.Peña-Centeno and N. D. Lawrence.  (2004) "Optimising kernel parameters and regularisation coefficients for non-linear discriminant analysis" Technical Report no CS-04-13, <br> University of Sheffield, Department of Computer Science. <br>
+     <li>Kevin J. Lang and Michael J. Witbrock  (1988) "Learning to tell two spirals apart" in Proceedings of the 1988 Connectionist Summer School. Morgan Kauffman<br>
+     <li> Spiral data, available <a href="http://www-ra.informatik.uni-tuebingen.de/SNNS/SNNS-Mail/96/0464.html">here</a>. <br>
+     <li> Gunnar R&auml;tsch's <a href="http://users.rsise.anu.edu.au/~raetsch/data/index">data</a>. <br>
+</ol>
+
+
+<h3>Release Information</h3>
+
+<p><u>Current release is 0.12</u></p>
+
+<p> Release 0.12 was used for the experiments presented in [1]. The code was written with flexibility in mind so probably there is room to make improvements in terms of efficiency of computation. 
+
+<p> Release 0.11 corresponds to the results presented in [2].
+
+<p>The BFD software requires some functions, written by Neil D. Lawrence, that have been put together in form of the <a href="http://www.dcs.shef.ac.uk/~neil/ndlutil/downloadFiles">NDLUTIL</a> toolbox. There are many versions of this toolbox but we recommend only a few of them in order to obatin the results of [1].</p>
+
+
+<table>
+  <tr>
+    <td width="35%"><b>Toolbox</b></td>
+    <td width="65%"><b>Version</b></td>
+  </tr>
+  
+<! NDLUTIL>
+  <tr>
+    <td width="35%">
+<a href="http://www.dcs.shef.ac.uk/~neil/ndlutil/downloadFiles">NDLUTIL</a><br>
+    </td>
+    <td width="65%">
+<p align="left">0.12 (or below)<br></p>
+    </td>
+  </tr>   
+
+<! NETLAB>
+  <tr>
+    <td width="35%">
+<a href="http://www.ncrg.aston.ac.uk/netlab/index.php">Netlab</a><br>
+    </td>
+    <td width="65%">
+<p align="left">3.3 (It should work with v3.2 as well)<br></p>
+  </tr>   
+
+<! ls-SVMlab>
+  <tr>
+    <td width="35%">
+<a href="http://www.esat.kuleuven.ac.be/sista/lssvmlab/">ls-SVMlab</a><br>
+    </td>
+    <td width="65%">
+<p align="left">1.5<br></p>
+  </tr>   
+</table>
+
+<p>To obtain the classification results for benchmark data it will be necessary to download Gunnar R&auml;tsch's data, available at [5]. You will also need the function <a href="http://www.ncrg.aston.ac.uk/netlab/worked.php">normal</a>, written by Ian T. Nabney. <b>Note</b>: this function does not belong to the Netlab toolbox, but is rather a worked example.
+
+<p>Please give a read to the <b>readme.txt</b> file that comes in this distribution to have more details about the installation procedure.
+
+<h2>Examples</h2>
+
+<h3>Synthetic datasets</h3>
+
+<p>The experiments with synthetic data, presented in [1], can be recreated by using the function <code><font size="4.5">bfdClassifyToyData</font></code>. This function can be applied on the four synthetic datasets included in the toolbox, henceforth referred as: <b>spiral</b>, <b>overlap</b>, <b>bumpy</b> and <b>relevance</b>. <code><font size="4.5">bfdClassifyData</font></code> also allows the use several type of GP priors, among them an RBF and an ARD-composed one. The <b>spiral</b> problem was first proposed by [3] and the dataset included in this distribution is based on the file found at [4].</p>
+
+<p> Given the inputs <img WIDTH="28" HEIGHT="17" ALIGN="HERE" BORDER="0" src="xi.png"> and <img WIDTH="28" HEIGHT="17" ALIGN="HERE" BORDER="0" src="xj.png"> we have implemented the RBF prior in the following way,
+<center><img WIDTH="393" HEIGHT="54" ALIGN="MIDDLE" BORDER="0" src="rbfKernel.png">,</center><br>
+where the parameter vector <img WIDTH="135" HEIGHT="32" ALIGN="MIDDLE" BORDER="0" src="rbfTheta.png">. <br>
+The ARD-composed kernel is defined as 
+<center><img WIDTH="654" HEIGHT="45" ALIGN="MIDDLE" BORDER="0" src="ardKernel.png">, </center><br>
+with a vector of parameters given by <img WIDTH="161" HEIGHT="32" ALIGN="MIDDLE" BORDER="0" src="ardTheta.png">.  This kernel is composed of four parts: RBF-ARD, LINEAR-ARD, BIAS and NOISE parts, thus giving its name of `composed'.<br>
+
+</p>
+
+<h4>RBF experiments</h4>
+ <p>Just run the following commands from Matlab's command prompt <br>
+ <p> <code><font size="4.5">
+  &gt;&gt dataset = 'overlap'; <br>
+  &gt;&gt kernelType = {'rbf', 'bias', 'white'}; <br>
+
+  &gt;&gt model = bfdClassifyToyData(dataset, kernelType); <br>   
+  </font></code> 
+<p>For each dataset (<code><font size="4.5">spiral</font></code>, <code><font size="4.5">overlap</font></code>, <code><font size="4.5">bumpy</font></code> and <code><font size="4.5">relevance</font></code>) these commands should produce the plots shown below. The function <code><font size="4.5">bfdClassifyToyData </font></code> also returns a structure <b>model</b> containing all the information about the discriminant.
+
+<! FIRST ROW OF RBF PLOTS>
+<p><center><img src="full-spiral.png" width="49%"><img src="overlap.png" width="49%"><br>
+Classification of synthetic datasets using an RBF kernel. Two classes are shown as pluses and circles. The separating line, in blue, was obtained by projecting test data over a grid. The dotted line indicates points at 1/4 of the distance, as measured in projected space, from the decision boundary to the class mean. The blue line was obtained after training a BFD model by maximising the marginal log-likelihood, <b>L</b>.
+&nbsp <i>Left</i>: Spiral data, with bound after training <b>L</b>=658.6107. &nbsp <i>Right</i>: Overlap data with final bound <b>L</b>=638.5258.<br>
+In both problems the parameters were initialised to 
+<img WIDTH="55" HEIGHT="30" ALIGN="MIDDLE" BORDER="0" src="theta_k.png">.</center>
+
+<! SECOND ROW OF RBF PLOTS>
+<p><center><img src="bumpy.png" width="49%"><img src="relevance.png" width="49%"><br>
+<i>Left</i>: Bumpy data with final bound <b>L</b>=609.0547. &nbsp <i>Right</i>: Relevance data, with bound <b>L</b>=895.7308. <br>
+For both problems the initial parameters were set to <img WIDTH="55" HEIGHT="30" ALIGN="MIDDLE" BORDER="0" src="theta_k.png">.</center>
+</p>
+
+<h4>ARD experiments</h4>
+ <p>In order to run experiments with the ARD-composed kernel, it is necessary to use a different value for the variable <code><font size="4.5">kernelType</font></code>, as it is shown below.<br>
+ <p> <code><font size="4.5">
+  &gt;&gt dataset = 'spiral'; <br>
+  &gt;&gt kernelType = {'rbfard', 'linard', 'bias', 'white'}; <br>
+
+  &gt;&gt model = bfdClassifyToyData(dataset, kernelType); <br>   
+  </font></code> 
+<p>The script should produce the plots shown below.</p>
+
+<! FIRST ROW OF ARD PLOTS>
+<p><center><img src="full-spiral_ard.png" width="49%"><img src="overlap_ard.png" width="49%"><br>
+<i>Left</i>: Spiral data, with final <b>L</b>=674.2042. In this experiment we initialised <img WIDTH="63" HEIGHT="30" ALIGN="MIDDLE" BORDER="0" src="theta2Spiral.png"> and the rest of parameters <img WIDTH="70" HEIGHT="30" ALIGN="MIDDLE" BORDER="0" src="thetaRemainSpiral.png"><br>
+<i>Right</i>: Overlap data, with final <b>L</b>=650.0908. This experiment used as initial parameters <img WIDTH="55" HEIGHT="30" ALIGN="MIDDLE" BORDER="0" src="theta_k.png">.</center> 
+</p>
+
+<! SECOND ROW OF ARD PLOTS>
+<p><center><img src="bumpy_ard.png" width="49%"><img src="relevance_ard.png" width="49%"><br>
+<i>Left</i>: Bumpy data, with final <b>L</b>=636.8442. &nbsp <i>Right</i>: Relevance data, with final <b>L</b>=998.9992. <br> In both problems we used an initial<img WIDTH="55" HEIGHT="30" ALIGN="MIDDLE" BORDER="0" src="theta_k.png">.</center>
+</p>
+
+
+<h4>Generating ROC curves and computing AUC's</h4>
+
+<p>There are several demos included in this distribution and two of them were specifically written to obtain some of the results presented in Table 1 of reference [1]. More specifically, these demos generate ROC curves for either <b>banana</b> or <b>breast-cancer</b> data and then obtain statistics related to the AUC's (area under ROC curves).</p>
+
+<p>The first demo can be run from the command-line as shown below<br><br>
+ 
+ <code><font size="4.5">
+   &gt;&gt demAUCbanana
+ </font></code></p>
+ 
+<p>After execution, a file <br><br>
+ <code><font size="4.5">banana_rbfbiaswhite_test_AUC_info.txt</font></code><br> <br> will be created inside the directory <code><font size="4.5">&#60bfd-path&#62/bananaROC/</font></code>. This file contains several statistics related to the ROC curves of <b>banana</b> and should look like this 
+
+ <p> <code><font size="4.5">
+  &nbsp&nbsp Dataset: banana <br>
+  &nbsp&nbsp Kernel used: rbfbiaswhite <br>
+  &nbsp&nbsp These are some statistics of the ROC curves <br>
+  &nbsp&nbsp ########################################### <br>
+  &nbsp&nbsp mean = 0.950725 <br>
+  &nbsp&nbsp median = 0.952039 <br>
+  &nbsp&nbsp max = 0.960705 <br>
+  &nbsp&nbsp min = 0.929625 <br>
+  &nbsp&nbsp std = 0.006099 <br>
+  </font></code><br></p>
+
+Further information in the directory <code><font size="4.5">&#60bfd-path&#62/bananaROC/</font></code> will be stored, for example a copy of the ROC curve for every test instance of <b>banana</b>.</p>
+
+<p>The second demo does the analogue process for <b>breast-cancer</b>. Hence it is required to run <br><br>
+
+ <code><font size="4.5">
+   &gt;&gt demAUCbreastCancer
+ </font></code></p>
+
+in order to obtain a result of this kind
+
+ <p><code><font size="4.5">
+  &nbsp&nbsp Dataset: breast-cancer <br>
+  &nbsp&nbsp Kernel used: rbfbiaswhite <br>
+  &nbsp&nbsp These are some statistics of the ROC curves <br> 
+  &nbsp&nbsp ########################################### <br>
+  &nbsp&nbsp mean = 0.734383 <br>
+  &nbsp&nbsp median = 0.736931 <br>
+  &nbsp&nbsp max = 0.909649 <br>
+  &nbsp&nbsp min = 0.615699 <br>
+  &nbsp&nbsp std = 0.052524.<br>
+ </font></code><br></p></p>
+
+<h4>Note on ROC curves</h4>
+
+<p>During execution of either of the scripts (<code><font size="4.5">demAUCbanana</font></code> or <code><font size="4.5">demAUCbreastCancer</font></code>) the ROC curve of each test instance of the datasets will be shown on the screen for a couple of seconds. This should look as shown below.
+</p>
+
+<! ROC PLOTS FOR FIRST TWO INSTANCES OF BANANA>
+<p><center><img src="bananaROC_rbfbiaswhite_test_plot_1.png" width="49%"><img src="bananaROC_rbfbiaswhite_test_plot_2.png" width="49%"><br>
+Some ROC curves of the test instances of <b>banana</b>.
+<i>Left</i>: First instance. <i>Right</i>: Second instance.</center>
+</p>
+
+<! ROC PLOTS FOR FIRST TWO INSTANCES OF BREAST-CANCER>
+<p><center><img src="breast-cancerROC_rbfbiaswhite_test_plot_1.png" width="49%"><img src="breast-cancerROC_rbfbiaswhite_test_plot_2.png" width="49%"><br>
+Some ROC curves of the test instances of <b>breast-cancer</b>.
+<i>Left</i>: First instance. <i>Right</i>: Second instance.</center>
+</p>
+
+<h4>Additional ROC-AUC demo</h4>
+
+<p>An extra script obtains ROC curves (and additional statistics) for the <b>heart</b> dataset; this time according to the results of Table 2 of reference [1]. Again, it is only a matter of running a script.</p>
+
+ <p><code><font size="4.5">
+  &gt&gt demAUCheart
+ </font></code></p>
+
+The result file should look as follows.
+ 
+ <p><code><font size="4.5">
+  &nbsp&nbsp Dataset: heart <br>
+  &nbsp&nbsp Kernel used: rbfardlinardbiaswhite <br> 
+  &nbsp&nbsp These are some statistics of the ROC curves.<br>
+  &nbsp&nbsp ########################################### <br>
+  &nbsp&nbsp mean = 0.909429 <br>
+  &nbsp&nbsp median = 0.908183 <br>
+  &nbsp&nbsp max = 0.960591 <br>
+  &nbsp&nbsp min = 0.845779 <br>
+  &nbsp&nbsp std = 0.027045 <br>
+ </font></code><br></p></p>
+
+
+<h4>Generating histograms of projected data</h4>
+
+<p>The histograms presented in Figure 10 of reference [1] can be created by running two scripts. The first script <br><br>
+
+ <p><code><font size="4.5">
+ &gt&gt demHistTwonorm
+ </font></code></p>
+
+will display and save on file the histograms of <b>twonorm</b> projected data. All files related the histograms of <b>twonorm</b> will be stored in a directory <code><font size="4.5">&#60bfd-path&#62/twonorm_avgHistogram</font></code>. Among other things, a couple of <code><font size="4.5">.eps</font></code> files will contain the average histograms of training and test data. Such histograms should be like the ones below.</p>
+
+<! HISTOGRAMS OF TWONORM DATA>
+<p><center><img src="hist_trainTwonorm.png" width="49%"><img src="hist_testTwonorm.png" width="49%"><br>
+<i>Left</i>: Histogram of projected data for training instances of <b>twonorm</b> <i>Right</i>: Histogram of projected data for test instances of <b>twonorm</b>.</center>
+</p>
+
+<p>The batch of histograms of <b>waveform</b> are obtained by running the script 
+ <p><code><font size="4.5">
+  &gt&gt demHistWaveform
+ </code></font></p>
+
+which generates plots like the following ones.</p>
+
+<! HISOGRAMS OF WAVEFORM DATA>
+<p><center><img src="hist_trainWaveform.png" width="49%"><img src="hist_testWaveform.png" width="49%"><br>
+<i>Left</i>: Histogram of projected data for training instances of <b>waveform</b> <i>Right</i>: Histogram of projected data for test instances of <b>waveform</b></center></p>
+
+<h4>Other experiments</h4>
+Further experiments can be carried out by modifying the scripts previously mentioned of by using the functions <code><font size="4.5">bfdClassifyData</font></code> and <code><font size="4.5">bfdClassifyToyData</font></code>. Please note that in order to recreate the results of [1], it will also be necessary to read the file <b>experimentResults.txt</b> included in this distribution.
+
+<br><br>
+<ADDRESS>
+Tonatiuh Pena Centeno
+2006-02-11
+</ADDRESS>
+
+</body>
+</html>

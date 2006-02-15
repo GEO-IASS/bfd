@@ -1,215 +1,256 @@
-%
-% VERSION 1.11 IN CVS
 
 
-The last release of this version of the BFD toolbox is 1.13, which in MATLAB 
-code is the same as 1.11 and 1.12 but with some differences in the TEX files.
+1) Functions included in the toolbox
 
-TPC - 14-Feb-04
+This toolbox is divided in several parts or modules that allow it not only 
+to train a BFD model but also to do auxiliary tasks. For example, the toolbox 
+includes functions to project a dataset over the direction of discrimination 
+obtained with BFD. This is useful if ROC curves or histograms want to be 
+generated.
+The files included in this toolbox are the following:
 
------------------------------------------------------------------------------
-This realease should correspond to submissions 1 and 2 of the JMLR paper. 
-The following equivalences apply:
+Core BFD, version 0.14
+----------------------
+bfd.m
+bfdBound.m
+bfdClassifyData.m
+bfdClassifyToyData.m
+bfdComputeAlpha.m
+bfdComputeL.m
+bfdCovarianceGradient.m
+bfdKernelGradient.m
+bfdKernelObjective.m
+bfdMatVar.m
+bfdOptimiseBFD.m
+bfdPlot.m
+bfdSaveData.m
+bfdUpdateBeta.m
+bfdUpdateSigma.m
 
-My parlance:	   JMLR:	  My parlance:			CVS:   TAG
-Submission 1  ---- 04-473(1)	  original			1.11  rel-1-11
-Submission 2  ---- 04-473(2) ---- Revision 1			1.13  rel-1-11
-                                  Revision 2 (never submitt'd)	
-Submission 3  ---- 04-473(3) ---- Revision 3			1.14  rel-1-12
+Kernel and auxiliary functions 
+------------------------------
+computeKernel.m
+loadData.m
+setOptions.m
+thetaConstrain.m
+initTheta.m
 
-Go to the TEX directory to obtain the copy of Submission 
+ROC functions
+-------------
+generateROC.m
+processROCdata.m
 
-The next release of the toolbox will be rel-1-12 and will be available at 
+Functions to project data
+-------------------------
+selectParamsFromArray.m
+selectParamsAndProject.m
+delElements.m
+projectData.m 
 
-		www.dcs.shef.ac.uk/~neil
+Functions to generate histograms
+--------------------------------
+bfdHist.m
+generateHist.m
 
-and corresponds to submission 3 of the JMLR paper, which was the accepted 
-submission by the way. rel-1-12 will also be associated to the  FINAL 
-version of the JMLR paper: that is the paper that was printed in the journal,
-finally.
+Demos
+-----
+demAUCbanana.m
+demAUCbreastCancer.m
+demAUCheart.m
+demHistTwonorm.m
+demHistWaveform.m
 
-RUNNING THE CODE:
-a) Please note that in order to obtaing the TOY results reported in 
-submissions 1 and 2 it is necessary to run TOYDEMO. 
-b) To 'recreate' the results of Table 2 (UCI data) is is necessary to 
-run CLASSDEMO.
-c) RUNBFD is also a 'demo' that implements by itself the EM routine, so it
-doeesn't make use of BfDOPTIMISEBFD.
+Text files
+----------
+scriptToCompareResults.txt
+experimentResults.txt
+readme.txt (this file!)
 
-OTHER FILES WITH INFORMATION
-a) paramTying.txt contains some information about tying hyperparameters for
-composed kernels. This usually happens with kernels that have RBF-ARD and 
-LIN-ARD parts. Note that BFD already has a function to carry out this task
-'automatically'.
-c) There usually are a couple of files:
-  
-   classification_DATASET_optimOptions.txt
-   classification_DATASET_results.txt
+Other files included	
+--------------------
+classSpecsRBFARDLINARDBIASWHITE.m
+classSpecsRBFBIASWHITE.m
 
-inside the directories Banana, heart and titanic, each of them containing
-information about the parameters used to train the models and the 
-classification results obtained on the test sets.
+Additional toolboxes or files that need to be installed to run the toolbox 
+are:
 
-d) The directory PARTIALRESULTS/ also contains some .TXT files with info. 
-See for instance THYROID and BUMPY directories.
+Netlab 3.3 functions (additional)
+---------------------------------
+dist2.m
+gradchek.m
+linef.m
+maxitmess.m
+scg.m
+normal.m  <-- nor part of Netlab, but written by Ian T. Nabney as well.
 
-The following are the toolboxes and the directories that need to be included 
-to be able to run the code
+Neil Lawrence's utilities NDLUTIL0p1 or below (additional)
+----------------------------------------------------------
+logdet.m
+pdinv.m
 
-TOOLBOXES TO RUN THE CODE
-The following toolboxes and path directories need to be included in matlab
-to be able to run the code
-
-path('/home/tpena/netlab', path)
-path('/home/tpena/mlprojects/matlab/general', path)
-importTool('kern')
-importTool('ndlutil')
-importTool('optimi')
-importTool('noise')
-importTool('prior')
-# General utilities
-path('/home/tpena/mlprojects/tpenaUtil', path)
-
-
-FILES AND DIRECTORIES
-This revision includes the following files and directories
-
-banana/                  bfdKernelObjective.m  bfdPlot.m                  
-bfdUpdateBeta.m		 partialResults/       titanic/
-bfdBound.m               bfdLoadData.m         bfdProjectData.m           
-bfdUpdateSigma.m	 readme.txt            toydemo.m
-bfdComputeAlpha.m        bfd.m                 bfdSaveData.m              
-classdemo.m		 runbfd.m              toyResults/
-bfdComputeCCProbs.m      bfdMakePredictions.m  bfdSelectWidthFromFiles.m       
-runClassBkgrndThyroid.m
-bfdComputeError.m        bfdMidProduct.m       bfdSelectWidth.m           
-datasets/		 runClassThyroid.m
-bfdComputeL.m            bfdOptimiseBFD.m      bfdTestRecords.m           
-dembfd.m		 setOptions.m
-bfdCovarianceGradient.m  bfdOptimiseKernel.m   bfdTestToy.m               
-heart/			 testPartialParamRecords.m
-bfdKernelGradient.m      bfdParamInit.m        bfdTrainModel.m            
-paramTying.txt		 testToyParams.m
-
-a) Each of the directories BANANA, HEART and THYROID contains 15 matlab files. 
-These files contain the parameters of the kernel and of Beta after having
-trained a BFD model. They are stored in a vector in the following way:
-
-	[kernParams, beta]
-
-There should also be 2 .TXT files inside each directory with the 
-classification results and information about the parameters used for the 
-optimisation routine.
-
-b) The directory PARTIALRESULTS should contain the following directories:
-
-       bumpy/  full-spiral/  half-spiral/  overlap/  thyroid/  toyARD/
-
-each of them contains one .TXT file and 3 matlab files. The matlab files
-store the paramters of having trained BFD model on a toy dataset. The .TXT
-file shows the model selection process.
+ls-SVMlab 1.5 functions (additional)
+------------------------------------
+roc.m
 
 
-Update: 13-Feb-06
+Note:All the functions are included in this toolbox, except those marked as 
+     `additional', which need to be downloaded and installed separately.
 
 
-------------------------------------------------------------------------------
-This file provides an explanation on how to install 
-and run the demos in the BFD toolbox provided.
+2) Installation 
 
-a) Files and scripts
-The toolbox is comprised of (at least) the 
-following
+a.- Extract the zip files that contain the toolbox to some directory, for 
+    example <your-matlab-path>/BFD/
+ 
+b.- Then add to the matlab path this directory and the subdirectories included 
+    in it; use the PATH command. This should look like this
 
-Functions
-bfdBound                 bfdMakePredictions    bfdUpdateBeta
-bfdComputeAlpha          bfdMidProduct         bfdUpdateSigma
-bfdComputeCCProbs        bfdOptimiseBFD		  
-bfdComputeError          bfdOptimiseKernel     
-bfdComputeL              bfdParamInit          
-bfdCovarianceGradient    bfdPlot               
-bfdKernelGradient        bfdProjectData        
-bfdKernelObjective       bfdSaveData           
-bfdLoadData              bfdSelectWidth        
-bfd							 bfdTrainModel
+	path('<your-matlab-path>/BFD/', path);
+	path('<your-matlab-path>/ls-SVMlab', path);
+	path('<your-matlab-path>/netlab', path);
+	path('<your-matlab-path>/normalisationFunction/', path);
+	path('<your-matlab-path>/NDLUTIL0p1', path);
 
-Scripts
-classdemo
-toydemo
+c.- Download the `additional' toolboxes (ndlUtil, Netlab & ls-SVMlab) and include
+    them in the matlab path.
 
-b) Requirements
-Other toolboxes & functions
-The toolbox works with some the functions provided by Neil D.
-Lawrence's toolbox for 'Machine Learning'. The functions that 
-are required are:
-				 kern
-				 ndlutil
-				 general		 
-				 matlab
-For more information on how to get his toolbox, please contact
-Neil at www.dcs.shef.ac.uk/~neil
-
-Operating system
-There shouldn't be any problems regarding OS, but make sure that
-the functions 'bfdSaveData' and 'bfdLoadData' point to the right
-directories.
-
-## Note
-Please make sure that you have the function 'setoptions' (provided
-as well) in the same directory where the rest of the functions are.
-This function converts an 'optimset' structure into the older
-vector format 'options'. 
-
-Matlab
-There shouldn't be any problems here. However, if there are any
-problems, just check 'bfdLoadData' and 'bfdSaveData' (if my 
-memory doesn't fail) as some of these files check which version
-is being used.
-
-c) Installation
-Just put all the files inside a directory, say BFD, and include 
-a directory 'datasets' to store all the UCI and toy data sets.
-Each dataset should be stored in a directory with its own name,
-see the figure below:
-
-	    /BFD
-		  |
-		  classdemo.m
-		  bfd.m
-		  ...
-		  datasets/ --		
-						  |
-						  bumpy/
-						  toyARD/
-						  thyroid/
-
-d) Saving results
-If you want to save results from your classifications, you just
-have to uncomment the lines at the bottom of classdemo and 
-toydemo, to save the final results: classification error and
-learnt parameters. You will have to create a directory
-called 'results' underneath BFD, just as with 'datasets'.
-
-If you want to save partial results, then it will be necessary
-to uncomment the lines at the bottom of bfdTrainModel. It will
-also be necessary to create the following directory
-
-/BFD/partialResults/datasetName/
-
-where dataSetName is the name of the data set being trained.
-
-The files stored inside dataSetName will be .mat and will be
-named with the following convention:
-
-kernelType_date&hour_datasetName.m
-
-e) Enquiries, complaints or suggestions can be directed to
-Tonatiuh Pena Centeno
-tpena@dcs.shef.ac.uk
+d.- Download Gunnar Raetsch's datasets (see [5]) in case you want to train BFD 
+    on some his data. Nonetheless, the results come included in this 
+    distribution, so this step is not strictly necessary.
 
 
-01-XII-04
+3) Datasets
+
+We have included a copy of BUMPY, FULL-SPIRAL, OVERLAP and RELEVANCE. Check [1] 
+to compare your results with those presented in the paper. Please note that the
+FULL-SPIRAL data was used previously by Lang and Witbrock; see [3] and [4].
 
 
+3) How to use it
+
+Functionalities
+---------------
+The algorithm is described in detail in [4] and should be used as main reference
+insofar to any theoretic aspect related to this implementation. This version of
+the toolbox includes two main tasks that can be carried out
+
+a.- Classification of datasets (data should have the same format as that of [5])
+b.- Generation of ROC curves (this is to replicate the results presented in [1])
+
+Later on we will try to include the functions that were used to generate the 
+histograms presented in the paper.
 
 
+Running classification experiments
+----------------------------------
+A typical run to classify a TOY DATA set would look like this from your matlab 
+prompt
+
+CLASSIFICATION WITH RBF KERNEL
+>> dataset = 'full-spiral';
+>> kernelType = {'rbf', 'bias', 'white'};
+>> model = demToy(dataset, kernelType);
+
+CLASSIFICATION WITH ARD-based KERNEL
+>> dataset = 'overlap';
+>> kernelType = {'rbfard', 'linard', 'bias', 'white'};
+>> model = demToy(dataset, kernelType);
+
+Note that a directory <your-matlab-path>/BFD/DATASET should be created at the end
+of the experiment. This directory should contain a plot and the results of the 
+experiments. A plot only will be generated for Toy datasets {Full-spiral, overlap, 
+bumpy, relevance}.
+
+
+Generating ROC curves
+---------------------
+The ROC and PROJECTDATA modules of the toolbox are designed to recreate the 
+results presented in [1]. The data will be projected using the MEDIAN of the 
+parameters obtained from training the first 5 training partitions of a given data
+set, see [1],[6] and [7] for further reference. 
+A typical run to obtain the ROC curves and related statistics looks like this
+
+GENERATING ROC CURVES FOR BANANA DATASET
+>> dataset = 'banana';
+>> kernelType = {'rbf', 'bias', 'white'};
+>> dataType = 'test';
+>> selectParamsAndProject(dataset, kernelType, dataType, [], []);
+>> generateROC(dataset, dataType, kernelType);
+>> processROCdata(dataset, dataType, kernelType);
+
+
+Recreating UCI experiments
+--------------------------
+As mentioned above, this distribution includes the results of training BFD on 
+the first five partitions of each dataset so it is NOT necessary to train again 
+everything. However, if it is required to do so, then the following steps should
+be followed:
+
+a.- Download Gunnar Raetsch's datasets from [1] and extract them so that they are
+    stored in <your-matlab-path>/BFD/datasets/DATASET, where DATASET can be 
+    'banana', 'thyroid', etc.
+b.- Use the script classSpecsKERNELTYPE on the function CLASSIFYDATA. 
+    Both of them were used to run the experiments reported in the paper [1]. Please 
+    bear in mind that running experiments with the specifications of 
+    classSpecsKERNELTYPE will take quite a long time as convergence criteria is 
+    very small. In fact, the experiments were run using the Pascal Network cluster,
+    which provides up to 26 processors with a fair amount of memory.
+
+
+Note on KERNELS
+------------------
+The computation of different kernel matrices is based on some old code by Neil 
+Lawrence. The idea behind this is to be able to fexibly compute kernels by adding
+components one at a time and for this reason processing efficiency was somehow 
+left behind. The components included in this toolbox are:
+
+RBF - an rbf kernel
+RBFARD - rbf kernel with ARD features
+LIN - a linear kernel
+LINARD - linear kernel with ARD features
+BIAS - a matrix with all elements set to some scalar
+WHITE - diagonal matrix \alpha*I
+
+The kernels used for the experiments in [1] were 
+
+a.- RBF based kernel - {'rbf', 'bias', 'white}
+b.- ARD kernel - {'rbfard', 'linard', 'bias', 'white}
+
+
+Note on the GAMMA structure inside MODSPECS
+-------------------------------------------
+This structure specifies a Gamma(a,b) distribution, which is the prior over the 
+parameter \Beta in the BFD model. See [1] for more details.
+
+
+#################################################################################
+Appendix: 
+
+
+a) References
+Please note that all functions included in this toolbox make reference to some of 
+the sources listed below
+
+  [1] T.Peña-Centeno and N. D. Lawrence.  (2006) 
+      "Optimising kernel parameters and regularisation coefficients 
+      for non-linear discriminant analysis" in Journal of Machine 
+      Learning Research. Accepted for publication.
+  [2] T.Peña-Centeno and N. D. Lawrence. (2004) 
+      "Optimising kernel parameters and regularisation coefficients 
+      for non-linear discriminant analysis" 
+      Technical Report no CS-04-13,
+  [3] J. Lang and M. J. Witbrock. 
+      "Learning to tell two spirals apart", in Proceedings of the 18th
+      Connectionnist Models Summer Schools. Morgan-Kauffman, 1988.
+  [4] Spiral data, available at 
+      http://www-ra.informatik.uni-tuebingen.de/SNNS/SNNS-Mail/96/0464.html
+  [5] URL http://users.rsise.anu.edu.au/~raetsch/data/index
+  [6] G. Raetsch, T. Onoda and K.-R. Muller, 
+      "Soft margins for AdaBoost", Machine Learning, vol. 43, no. 3, 
+      pp 287-320, March 2001.
+  [7] S. Mika, G. Rätsch, J. Weston, B. Schölkopf, and K.-R. Müller. 
+      "Fisher discriminant analysis with kernels."
+      In Y.-H. Hu, J. Larsen, E. Wilson, and S. Douglas, editors, 
+      Neural Networks for Signal Processing IX, pages 41-48. IEEE, 1999. 
+
+# EOF

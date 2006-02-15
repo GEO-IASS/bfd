@@ -1,15 +1,34 @@
 function model = bfdComputeAlpha(model)
 
-% BFDCOMPUTEALPHA Computes the 'eigenvectors' of the model
+% BFDCOMPUTEALPHA Computes coefficients alpha
 
 % BFD
 
-% VERSION 1.11 IN CVS
+% Syntax:
+% model = bfdComputeAlpha(model);
+% 
+% Description:
+% Computes the [N,1] vector of `support vector' coefficients
+% ALPHA. Applying this function will result in the update
+% of the field ALPHA within the MODEL structure.
+% This function is typically called by BFDPLOT.
+% 
+% Inputs:
+%   model     : data structure with information to train a BFD alg.
+% Outputs:
+%   model     : the same data structure but with the field ALPHA
+%               updated.
+%
+% Other info  : this function can only be applied if the
+%               sub-structure KERN exists inside MODEL.
+%
+% See also: BFDPLOT
 %
 
-% Computing projected means and alpha coeffs.
-m1 = model.kern.Kstore*model.y/sum(model.y);
-m0 = model.kern.Kstore*(1-model.y)/sum(1-model.y);
-alpha = pdinv(model.kern.Kstore*1/model.beta ...
-              + model.kern.Kstore*model.L*model.kern.Kstore)*(m0-m1);
-model.alpha = model.d*alpha/(alpha'*(m0-m1));
+% Takes a BFD model and computes the "alpha" coeffients
+K = model.kern.K;
+m1 = K*model.y/sum(model.y);
+m0 = K*(1-model.y)/sum(1-model.y);
+L = model.L;
+alpha = pdinv(K/model.beta + K*L*K)*(m0-m1);
+model.alpha = model.dist*alpha/(alpha'*(m0-m1));

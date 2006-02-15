@@ -1,0 +1,107 @@
+# 
+# This file contains the sequence of commands that need to be run in order 
+# to obtain the optimal BFD parameters for each dataset. By optimal we mean 
+# that in our experiments we chose the best result out of 
+#   
+#            (5 partitions \times N inverse width initialisations) 
+#
+# sets of parameters. The selection procedure consisted on a two stage 
+# procedure. First for each partition we selected the parameters that 
+# maximised the log-likelihood. Then out of the resulting 5 sets of 
+# parameters, we selected the median value.
+# Thus, this code trains a BFD using the selected initial inverse width 
+# and the selected partition.
+
+dataset = 'banana';
+invWidth = 100;
+partition = 2;
+kernelType = {'rbf', 'bias', 'white'};
+[params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
+]
+dataset = 'breast-cancer';
+invWidth = 1;
+partition = 5;
+kernelType = {'rbf', 'bias', 'white'};
+[params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
+
+dataset = 'diabetis';
+dataType = 'train';
+invWidth = 1;
+partition = 3;
+kernelType = {'rbf', 'bias', 'white'};
+classSpecsRBFBIASWHITE
+[params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
+
+dataset = 'german';
+dataType = 'train';
+invWidth = 1;
+partition = 1;
+kernelType = {'rbf', 'bias', 'white'};
+classSpecsRBFBIASWHITE
+[params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
+
+dataset = 'heart';
+dataType = 'train';
+invWidth = 1;
+partition = 5;
+kernelType = {'rbf', 'bias', 'white'};
+classSpecsRBFBIASWHITE
+[params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
+
+dataset = 'image';
+dataType = 'train';
+invWidth = 100;
+partition = 2;
+kernelType = {'rbf', 'bias', 'white'};
+classSpecsRBFBIASWHITE
+[params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
+
+dataset = 'ringnorm';
+dataType = 'train';
+invWidth = 1;
+partition = 3;
+kernelType = {'rbf', 'bias', 'white'};
+classSpecsRBFBIASWHITE
+[params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
+
+dataset = 'flare-solar';
+dataType = 'train';
+invWidth = 10;
+partition = 3;
+kernelType = {'rbf', 'bias', 'white'};
+classSpecsRBFBIASWHITE
+[params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
+
+dataset = 'splice';
+dataType = 'train';
+invWidth = 0.01;
+partition = 5;
+kernelType = {'rbf', 'bias', 'white'};
+classSpecsRBFBIASWHITE
+[params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
+
+dataset = 'thyroid';
+invWidth = 10;
+partition = 3;
+kernelType = {'rbf', 'bias', 'white'};
+[params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
+
+dataset = 'titanic';
+invWidth = 10;
+partition = 1;
+kernelType = {'rbf', 'bias', 'white'};
+[params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
+
+dataset = 'twonorm';
+invWidth = 1;
+partition = 1;
+kernelType = {'rbf', 'bias', 'white'};
+[params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
+
+dataset = 'waveform';
+invWidth = 1;
+partition = 2;
+kernelType = {'rbf', 'bias', 'white'};
+[params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
+
+TPC 15-Feb-06

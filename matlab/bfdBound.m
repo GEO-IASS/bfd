@@ -1,17 +1,41 @@
 function Ltheta = bfdBound(model)
 
-% BFDBOUND Computes bound on marginal log-likelihood
+% BFDCOMPUTEBOUND Computes bound of marginal log-likelihood
 
 % BFD
 
-% VERSION 1.11 IN CVS
 %
+% Syntax:
+% Ltheta = bfdBound(model);
+%
+% Description:
+% Evaluates the bound of the marginal log-likelihood. This 
+% computation takes into account the prior over \Beta, which is
+% stored inside the structure GAMMA.
+%
+% Inputs:
+%   model     : data structure with information to train a BFD alg.
+% Outputs:
+%   Ltheta    : the value of the bound according to the information 
+%               stored in MODEL. 
+%
+% Other info  : this function is used to test convergence.
+%
+% See also: reference [4] in README file
 
-% Computes the bound of the logmarginal likelihood
-% Prior over Beta is included
-[invSigma,UC] = pdinv(model.Sigma);
-K = model.kern.Kstore;
-N = size(model.y, 1);
-Ltheta = - 0.5*( N*log(2*pi) - N*log(model.beta) ...
-                + logdet(K) + logdet(invSigma, UC) )...
-         + gammaPriorLogProb(model.gamma, model.beta);
+[invSigma, UC] = pdinv(model.Sigma);
+N = length(invSigma);
+Ltheta = -0.5*( N*log(2*pi) - N*log(model.beta) ...
+                + logdet(model.kern.K) ...
+                + logdet(invSigma, UC) ) ...
+                + gammaPriorLogProb(model.gamma, model.beta);
+
+
+%%% Auxiliar function to compute the log-prior over \Beta
+function l = gammaPriorLogProb(prior, beta)
+
+% This is the log of a Gamma(a,b) distribution
+% with SHAPE parameter A and INV-SCALE parameter B.
+D = length(beta);
+l = D*prior.a*log(prior.b)-D*gammaln(prior.a)+...
+    (prior.a-1)*sum(log(beta))-prior.b*sum(beta);
