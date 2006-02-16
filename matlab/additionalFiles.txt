@@ -1,9 +1,11 @@
 # These are all the EXTRA files the should be packaged for 
 # the BFD software.
 #
-# Created: 10-Feb-05
+# Last modified: 16-Feb-06	Created: 10-Feb-06
 #
-dir:html
+
+# HTML FILES
+dir:~/mlprojects/bfd/html
 ~/mlprojects/bfd/html/index.html
 ~/mlprojects/bfd/html/ardKernel.png
 ~/mlprojects/bfd/html/ardTheta.png
@@ -32,9 +34,13 @@ dir:html
 ~/mlprojects/bfd/html/thetaRemainSpiral.png
 ~/mlprojects/bfd/html/xi.png
 ~/mlprojects/bfd/html/xj.png
-dir:.
-~/mlprojects/bfd/readme.txt
-dir:gunnarClassResults
+### README FILE, ETC.
+dir:~/mlprojects/bfd/matlab
+~/mlprojects/bfd/matlab/readme.txt
+~/mlprojects/bfd/matlab/experimentResults.txt
+~/mlprojects/bfd/matlab/scriptToCompareResults.txt
+### FILES WITH RESULTS
+dir:~/mlprojects/bfd/matlab/gunnarClassResults
 ~/mlprojects/bfd/gunnarClassResults/rbfbiaswhite_20050531T135213resultMatrices_banana.mat
 ~/mlprojects/bfd/gunnarClassResults/rbfbiaswhite_20050531T135328resultMatrices_thyroid.mat
 ~/mlprojects/bfd/gunnarClassResults/rbfbiaswhite_20050531T135347resultMatrices_titanic.mat
@@ -61,8 +67,8 @@ dir:gunnarClassResults
 ~/mlprojects/bfd/gunnarClassResults/rbfardlinardbiaswhite_20050725T180827resultMatrices_splice.mat
 ~/mlprojects/bfd/gunnarClassResults/rbfardlinardbiaswhite_20050725T185740resultMatrices_waveform.mat
 ~/mlprojects/bfd/gunnarClassResults/rbfardlinardbiaswhite_20050801T110858resultMatrices_image.mat
-###
-dir:datasets/bumpy
+### DATASETS
+dir:~/mlprojects/bfd/matlab/datasets/bumpy
 ~/mlprojects/bfd/datasets/bumpy/bumpy_train_data_1.asc
 ~/mlprojects/bfd/datasets/bumpy/bumpy_train_labels_1.asc
 dir:datasets/overlap
