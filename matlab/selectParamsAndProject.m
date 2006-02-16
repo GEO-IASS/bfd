@@ -139,7 +139,7 @@ else
   fprintf(['projectDataFromFiles: ', msg, '\n']);
 end
 dataString  = [strrep(fileName, '.mat', '_'), ...
-               dataType, '_Data_projections.mat'];
+               '_', dataType, '_Data_projections.mat'];
 save(dataString, 'trainF', 'testF', 'testY');
 cd(orig_path);
   

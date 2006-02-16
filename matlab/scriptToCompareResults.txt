@@ -16,40 +16,43 @@ dataset = 'banana';
 invWidth = 100;
 partition = 2;
 kernelType = {'rbf', 'bias', 'white'};
+dataType = 'train';
+classSpecsRBFBIASWHITE
 [params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
-]
+
 dataset = 'breast-cancer';
 invWidth = 1;
 partition = 5;
 kernelType = {'rbf', 'bias', 'white'};
+dataType = 'train';
+classSpecsRBFBIASWHITE
 [params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
 
 dataset = 'diabetis';
-dataType = 'train';
 invWidth = 1;
 partition = 3;
 kernelType = {'rbf', 'bias', 'white'};
+dataType = 'train'
 classSpecsRBFBIASWHITE
 [params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
 
 dataset = 'german';
-dataType = 'train';
 invWidth = 1;
 partition = 1;
 kernelType = {'rbf', 'bias', 'white'};
+dataType = 'train'
 classSpecsRBFBIASWHITE
 [params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
 
 dataset = 'heart';
-dataType = 'train';
 invWidth = 1;
 partition = 5;
 kernelType = {'rbf', 'bias', 'white'};
+dataType = 'train'
 classSpecsRBFBIASWHITE
 [params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
 
 dataset = 'image';
-dataType = 'train';
 invWidth = 100;
 partition = 2;
 kernelType = {'rbf', 'bias', 'white'};
@@ -57,26 +60,26 @@ classSpecsRBFBIASWHITE
 [params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
 
 dataset = 'ringnorm';
-dataType = 'train';
 invWidth = 1;
 partition = 3;
 kernelType = {'rbf', 'bias', 'white'};
+dataType = 'train'
 classSpecsRBFBIASWHITE
 [params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
 
 dataset = 'flare-solar';
-dataType = 'train';
 invWidth = 10;
 partition = 3;
 kernelType = {'rbf', 'bias', 'white'};
+dataType = 'train'
 classSpecsRBFBIASWHITE
 [params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
 
 dataset = 'splice';
-dataType = 'train';
 invWidth = 0.01;
 partition = 5;
 kernelType = {'rbf', 'bias', 'white'};
+dataType = 'train';
 classSpecsRBFBIASWHITE
 [params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
 
@@ -84,24 +87,38 @@ dataset = 'thyroid';
 invWidth = 10;
 partition = 3;
 kernelType = {'rbf', 'bias', 'white'};
+dataType = 'train';
+classSpecsRBFBIASWHITE
 [params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
 
 dataset = 'titanic';
 invWidth = 10;
 partition = 1;
 kernelType = {'rbf', 'bias', 'white'};
+dataType = 'train';
+classSpecsRBFBIASWHITE
 [params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
 
 dataset = 'twonorm';
 invWidth = 1;
 partition = 1;
 kernelType = {'rbf', 'bias', 'white'};
+dataType = 'train';
+classSpecsRBFBIASWHITE
 [params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
 
 dataset = 'waveform';
 invWidth = 1;
 partition = 2;
 kernelType = {'rbf', 'bias', 'white'};
+dataType = 'train';
+classSpecsRBFBIASWHITE
 [params, model] = bfdClassifyData(dataset, dataType, partition, kernelType, invWidth, options);
+
+
+# Experiments with ARD kernel can be recreated by applying almost the same commands. Inverse widths
+# and partition numbers can be consulted in EXPERIMENTRESULTS.TXT. The kernel value changes to
+# {'rbfard', 'linard', 'bias', 'white'} and the line classSpecsRBFBIASWHITE is replaced by 
+# classSpecsRBFARDLINARDBIASWHITE
 
 TPC 15-Feb-06
