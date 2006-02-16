@@ -6,7 +6,7 @@ function model = bfdPlot(model, col)
 
 % 
 % Syntax:
-% bfdPlot(model, col);
+% model = bfdPlot(model, col);
 % 
 % Description
 % Function used exclusively with 2D data. It plots the discriminant

@@ -20,14 +20,14 @@ function model = bfdOptimiseBFD(model, options)
 % M-step is based on the application of a conjugate gradient's
 % routine to maximise L(\Theta) wrt \Theta. See the SCG function 
 % in Ian Nabney's Netlab toolbox for more information about the
-% implementation of conjugate gradients. See [4] for further
+% implementation of conjugate gradients. See [1] for further
 % details on EM applied to BFD.
 % BFDOPTIMISEBFD can receive a vector of OPTIONS that control the
 % optimisation in terms of TOLERANCE, ITERATIONS, among others.
 %
 % Inputs
 %   model     : data structure with information to train a BFD alg.
-%   options(*): a vector with parameters, typically of size [18,1]
+%   options(*): a vector with parameters, typically of size [23,1]
 % Outputs
 %   model     : the same data structure with the uptated field -
 %               model.kern.lntheta.

@@ -9,8 +9,8 @@
 %
 % Description:
 % This script generates the vector of optimisation OPTIONS that
-% were used for the BFD experiments with RBF kernel specified in
-% reference [1]. See REAME file.
+% were used for the BFD experiments with RBF kernel. These
+% parameters are specified in reference [1]. See REAME file.
 %
 % See also: classSpecsRBFARDLINARDBIASWHITE, BFDOPTIMISEBFD, README
 %           file 

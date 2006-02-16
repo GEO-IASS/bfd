@@ -26,7 +26,8 @@ function lntheta = initTheta(kernel, numIn)
 %
 %
 % NOTE: This function is a modification of code written by Neil
-%       D. Lawrence, under his explicit permission.
+%       D. Lawrence. This code is distributed under his explicit
+%       permission. 
 %
 
 % Verifying kernel type and initialising vector of parameters. 

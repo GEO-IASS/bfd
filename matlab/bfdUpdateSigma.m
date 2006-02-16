@@ -10,7 +10,7 @@ function model = bfdUpdateSigma(model)
 % 
 % Description:
 % Updates the value of the posterior covariance \Sigma_{p}. See
-% reference [4] (in the README file)for more details. 
+% reference [1] (in the README file)for more details. 
 % This function is used by BFDOPTIMISEBFD to adapt the kernel
 % parameters to the training data.
 % 

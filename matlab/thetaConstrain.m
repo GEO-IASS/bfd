@@ -28,7 +28,8 @@ function theta = thetaConstrain(theta)
 %
 %
 % NOTE: This function is a modification of code written by Neil
-%       D. Lawrence, under his explicit permission.
+%       D. Lawrence. This code is distributed under his explicit
+%       permission. 
 %
 
 % Stop and ask user what to do in case NaN's are found 

@@ -14,7 +14,7 @@ function matVar = bfdMatVar(model)
 % training data is given by a prior component and a likelihood
 % component.  This function computes the matrix (invK-invD) which
 % is required to evaluate the likelihood part of the variance. See
-% [4] for further details on the computation of the variance of a
+% [1] for further details on the computation of the variance of a
 % test point in BFD.
 %
 % Inputs

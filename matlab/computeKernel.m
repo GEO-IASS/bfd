@@ -53,7 +53,8 @@ function [kx, rbfPart, linearPart, n2] = computeKernel(lntheta, type, x, x2)
 %
 %
 % NOTE: This function is a modification of code written by Neil
-%       D. Lawrence, under his explicit permission.
+%       D. Lawrence. This code is distributed under his explicit
+%       permission. 
 %
 
 % Fetching parameters and verifying they're within a proper range

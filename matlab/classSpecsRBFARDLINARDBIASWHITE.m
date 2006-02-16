@@ -9,8 +9,8 @@
 %
 % Description:
 % This script generates the vector of optimisation OPTIONS that
-% were used for the BFD experiments with the ARD kernel mentioned in
-% reference [1]. See README file.
+% were used for the BFD experiments with the ARD kernel. These
+% parameters are specified in reference [1]. See README file.
 %
 % See also: classSpecsRBFBIASWHITE, BFDOPTIMISEBFD, README file
 %

@@ -12,7 +12,7 @@ function [A, meanA, medA, ...
 %
 % Description:
 % Computes the mean, median, best & worst area `A' under the ROC
-% curve for the datasets given by Gunnar Raetsch. See [1] for the
+% curve for the datasets given by Gunnar Raetsch. See [5] for the
 % data and [1] for the results. References given in the README
 % file.  
 % This function should be used only after GENERATEROC has been

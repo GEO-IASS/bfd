@@ -10,7 +10,7 @@ function model = bfdUpdateBeta(model)
 %
 % Description:
 % This function is used to compute a new value of the parameter
-% \Beta according to the update equation specified in [4], see
+% \Beta according to the update equation specified in [1], see
 % README file.
 % 
 % Inputs

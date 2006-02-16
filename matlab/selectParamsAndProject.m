@@ -12,14 +12,15 @@ function [trainF, testF] = selectParamsAndProject(dataset, kernelType, ...
 %
 % Description:
 % This function has been designed for processing the UCI data
-% provided by Gunnar Raetsch, see reference [2] in the README file.
+% provided by Gunnar Raetsch, see references [5,6] in the README
+% file. 
 % The processing consists of projecting Training and Test instances
 % of a given DATASET over the line of discrimination obtained by
-% applying a `Bayesian Fisher discriminant', see [4].
-% We follow the methodology of model selection proposed by [2] and
-% [3] whereby the first 5 instances of the Training
+% applying a `Bayesian Fisher discriminant', see [1].
+% We follow the methodology of model selection proposed by [6] and
+% [7] whereby the first 5 instances of the Training
 % instances of a given DATASET are used to train an algorithm, in
-% this case BFD. According to [2] and [3], among the 5 
+% this case BFD. According to [6] and [7], among the 5 
 % resulting sets of parameters, the median value was selected.
 %
 % How this works...

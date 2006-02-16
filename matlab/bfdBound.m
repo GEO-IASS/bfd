@@ -21,7 +21,7 @@ function Ltheta = bfdBound(model)
 %
 % Other info  : this function is used to test convergence.
 %
-% See also: reference [4] in README file
+% See also: reference [1] in README file
 
 [invSigma, UC] = pdinv(model.Sigma);
 N = length(invSigma);

@@ -9,7 +9,7 @@ obtained with BFD. This is useful if ROC curves or histograms want to be
 generated.
 The files included in this toolbox are the following:
 
-Core BFD, version 0.14
+Core BFD, release 0.12
 ----------------------
 bfd.m
 bfdBound.m
@@ -105,7 +105,7 @@ a.- Extract the zip files that contain the toolbox to some directory, for
 b.- Then add to the matlab path this directory and the subdirectories included 
     in it; use the PATH command. This should look like this
 
-	path('<your-matlab-path>/BFD/', path);
+	path('<your-matlab-path>/BFD/matlab', path);
 	path('<your-matlab-path>/ls-SVMlab', path);
 	path('<your-matlab-path>/netlab', path);
 	path('<your-matlab-path>/normalisationFunction/', path);

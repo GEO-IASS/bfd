@@ -6,7 +6,7 @@ function [paramMtrx, betaMtrx, ...
 
 % DELELEMENTS deletes columns or rows of a given matrix
 
-% BFD/PROJECTDATA
+% BFD
 
 %
 % Syntax:
@@ -19,7 +19,7 @@ function [paramMtrx, betaMtrx, ...
 % SELECTPARAMSFROMARRAY. It is used in case a particular inverse
 % width or a partition wants to be ignored from the selcetion
 % process. By selection we mean the process of choosing the MEDIAN
-% value of the parameters, as described in references [2,3,4]; see
+% value of the parameters, as described in references [1,6,7]; see
 % README file.
 % 
 % Inputs:

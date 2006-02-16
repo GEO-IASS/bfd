@@ -21,7 +21,7 @@ function options = setOptions(optset)
 %   optSet     : structure with the information for the optimisation
 %                routine 
 % Outputs
-%   Options   : a vector of dimensions [23,1]
+%   Options    : a vector of dimensions [23,1]
 %
 % See also: SCG, BFDOPTIMISEBFD, FOPTIONS, OPTIMSET
 %

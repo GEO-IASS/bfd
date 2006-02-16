@@ -5,11 +5,11 @@
 
 % 
 % Syntax:
-% demAUCbreast-cancer
+% demAUCbreastCancer
 %
 % Description:
 % This script can be run to recreate the results of the BFD paper,
-% see [1] in 
+% see [1] in README file.
 %
 
 % Defining parameters

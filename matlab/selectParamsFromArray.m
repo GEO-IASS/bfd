@@ -19,7 +19,7 @@ function [params, beta, like, ...
 % matrix of beta parameters and a matrix of likelihoods, each with
 % dimensions [Npart, Ninit], where Npart are the total number of
 % partitions and Ninit are the number of initialisations used. In
-% the experiments reported in [4] (see README file), Npart = 5 and
+% the experiments reported in [1] (see README file), Npart = 5 and
 % Ninit = 8. 
 % This function takes LIKEMTRX and selects the elements that
 % maximise each partition, with the associated indexes `IDX' being
