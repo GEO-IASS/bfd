@@ -5,25 +5,29 @@ This page describes how to use the so-called Bayesian Fisher
 Discriminant (BFD) software.
 
 Please note that in the subsequent discussion we will be using these
-references:\
+references:
+
 1.  T. Peña-Centeno and N. D. Lawrence. (2006) ["Optimising kernel
     parameters and regularisation coefficients for non-linear
     discriminant
     analysis"](http://ml.sheffield.ac.uk/~neil/cgi-bin/publications/bibpage.cgi?keyName=Pena:fbd04)
-    in Journal of Machine Learning Research, accepted for publication.\
+    in Journal of Machine Learning Research, accepted for publication.
+    
 2.  T. Peña-Centeno and N. D. Lawrence. (2004) ["Optimising kernel
     parameters and regularisation coefficients for non-linear
     discriminant
     analysis"](http://ml.sheffield.ac.uk/~neil/cgi-bin/publications/bibpage.cgi?keyName=Pena:fbd-tech04)
-    Technical Report no CS-04-13,\
-     University of Sheffield, Department of Computer Science.\
+    Technical Report no CS-04-13,
+     University of Sheffield, Department of Computer Science.
+
 3.  Kevin J. Lang and Michael J. Witbrock (1988) "Learning to tell two
     spirals apart" in Proceedings of the 1988 Connectionist Summer
-    School. Morgan Kauffman\
+    School. Morgan Kauffman
 4.  Spiral data, available
-    [here](http://www-ra.informatik.uni-tuebingen.de/SNNS/SNNS-Mail/96/0464.html).\
+    [here](http://www-ra.informatik.uni-tuebingen.de/SNNS/SNNS-Mail/96/0464.html).
+
 5.  Gunnar Rätsch's
-    [data](http://users.rsise.anu.edu.au/~raetsch/data/index).\
+    [data](http://users.rsise.anu.edu.au/~raetsch/data/index).
 
 ### Release Information
 
@@ -46,7 +50,7 @@ the results of [1].
 **Toolbox** | **Version**
 ------------|------------
 [NDLUTIL](/ndlutil/downloadFiles) | 0.12 (or below)
-[Netlab](http://www.ncrg.aston.ac.uk/netlab/index.php) | 3.3 (It should work with v3.2 as well)\
+[Netlab](http://www.aston.ac.uk/eas/research/groups/ncrg/resources/netlab/) | 3.3 (It should work with v3.2 as well)
 [ls-SVMlab](http://www.esat.kuleuven.ac.be/sista/lssvmlab/) | 1.5
 
 To obtain the classification results for benchmark data it will be
@@ -100,7 +104,7 @@ commands should produce the plots shown below. The function
 `bfdClassifyToyData ` also returns a structure **model** containing all
 the information about the discriminant.
 
-![](full-spiral.png)![](overlap.png)\
+![](full-spiral.png)![](overlap.png) 
  Classification of synthetic datasets using an RBF kernel. Two classes
 are shown as pluses and circles. The separating line, in blue, was
 obtained by projecting test data over a grid. The dotted line indicates
@@ -108,18 +112,18 @@ points at 1/4 of the distance, as measured in projected space, from the
 decision boundary to the class mean. The blue line was obtained after
 training a BFD model by maximising the marginal log-likelihood, **L**.  
 *Left*: Spiral data, with bound after training **L**=658.6107.  
-*Right*: Overlap data with final bound **L**=638.5258.\
+*Right*: Overlap data with final bound **L**=638.5258. 
  In both problems the parameters were initialised to ![](theta_k.png).
-![](bumpy.png)![](relevance.png)\
+![](bumpy.png)![](relevance.png) 
  *Left*: Bumpy data with final bound **L**=609.0547.   *Right*:
-Relevance data, with bound **L**=895.7308.\
+Relevance data, with bound **L**=895.7308. 
  For both problems the initial parameters were set to ![](theta_k.png).
 
 #### ARD experiments
 
 In order to run experiments with the ARD-composed kernel, it is
 necessary to use a different value for the variable `kernelType`, as it
-is shown below.\
+is shown below. 
 
 ```matlab   
 >> dataset = 'spiral';    
@@ -129,15 +133,15 @@ is shown below.\
 
 The script should produce the plots shown below.
 
-![](full-spiral_ard.png)![](overlap_ard.png)\
+![](full-spiral_ard.png)![](overlap_ard.png) 
  *Left*: Spiral data, with final **L**=674.2042. In this experiment we
 initialised ![](theta2Spiral.png) and the rest of parameters
-![](thetaRemainSpiral.png)\
+![](thetaRemainSpiral.png) 
  *Right*: Overlap data, with final **L**=650.0908. This experiment used
 as initial parameters ![](theta_k.png).
-![](bumpy_ard.png)![](relevance_ard.png)\
+![](bumpy_ard.png)![](relevance_ard.png) 
  *Left*: Bumpy data, with final **L**=636.8442.   *Right*: Relevance
-data, with final **L**=998.9992.\
+data, with final **L**=998.9992. 
  In both problems we used an initial![](theta_k.png).
 
 #### Generating ROC curves and computing AUC's
@@ -148,7 +152,7 @@ Table 1 of reference [1]. More specifically, these demos generate ROC
 curves for either **banana** or **breast-cancer** data and then obtain
 statistics related to the AUC's (area under ROC curves).
 
-The first demo can be run from the command-line as shown below\
+The first demo can be run from the command-line as shown below 
 
 ```    
 >> demAUCbanana  
@@ -178,8 +182,8 @@ Further information in the directory `<bfd-path>/bananaROC/` will be
 stored, for example a copy of the ROC curve for every test instance of
 **banana**.
 The second demo does the analogue process for **breast-cancer**. Hence
-it is required to run\
-\
+it is required to run 
+ 
 ```matlab    
 >> demAUCbreastCancer  
 ```
@@ -204,10 +208,10 @@ During execution of either of the scripts (`demAUCbanana` or
 datasets will be shown on the screen for a couple of seconds. This
 should look as shown below.
 
-![](bananaROC_rbfbiaswhite_test_plot_1.png)![](bananaROC_rbfbiaswhite_test_plot_2.png)\
+![](bananaROC_rbfbiaswhite_test_plot_1.png)![](bananaROC_rbfbiaswhite_test_plot_2.png) 
  Some ROC curves of the test instances of **banana**. *Left*: First
 instance. *Right*: Second instance.
-![](breast-cancerROC_rbfbiaswhite_test_plot_1.png)![](breast-cancerROC_rbfbiaswhite_test_plot_2.png)\
+![](breast-cancerROC_rbfbiaswhite_test_plot_1.png)![](breast-cancerROC_rbfbiaswhite_test_plot_2.png) 
  Some ROC curves of the test instances of **breast-cancer**. *Left*:
 First instance. *Right*: Second instance.
 #### Additional ROC-AUC demo
@@ -236,8 +240,8 @@ std = 0.027045
 #### Generating histograms of projected data
 
 The histograms presented in Figure 10 of reference [1] can be created by
-running two scripts. The first script\
-\
+running two scripts. The first script 
+ 
 
 ```  
 >> demHistTwonorm  
@@ -248,7 +252,7 @@ data. All files related the histograms of **twonorm** will be stored in
 a directory `<bfd-path>/twonorm_avgHistogram`. Among other things, a
 couple of `.eps` files will contain the average histograms of training
 and test data. Such histograms should be like the ones below.
-![](hist_trainTwonorm.png)![](hist_testTwonorm.png)\
+![](hist_trainTwonorm.png)![](hist_testTwonorm.png) 
  *Left*: Histogram of projected data for training instances of
 **twonorm** *Right*: Histogram of projected data for test instances of
 **twonorm**.
@@ -260,7 +264,7 @@ script
 ```
 
 which generates plots like the following ones.
-![](hist_trainWaveform.png)![](hist_testWaveform.png)\
+![](hist_trainWaveform.png)![](hist_testWaveform.png) 
  *Left*: Histogram of projected data for training instances of
 **waveform** *Right*: Histogram of projected data for test instances of
 **waveform**
@@ -271,8 +275,8 @@ Further experiments can be carried out by modifying the scripts
 previously mentioned of by using the functions `bfdClassifyData` and
 `bfdClassifyToyData`. Please note that in order to recreate the results
 of [1], it will also be necessary to read the file
-**experimentResults.txt** included in this distribution.\
-\
+**experimentResults.txt** included in this distribution. 
+ 
 Tonatiuh Pena Centeno 2006-02-11
 
 Page last modified on Fri Jan 5 12:19:12 GMT 2007.
