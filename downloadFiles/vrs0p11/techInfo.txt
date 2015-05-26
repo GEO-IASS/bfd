@@ -1,0 +1,57 @@
+ [model, K] = bfd(X, Y, modSpecs, params, beta)
+
+ Ltheta = bfdBound(model)
+
+ model = bfdComputeAlpha(model)
+
+ [p1, p0] = bfdComputeCCProbs(model, trainF, trainY, testF)
+
+ [error, predY, probY] = bfdComputeError(trainData, testData, ...
+%                                               modSpecs, params)
+
+ model = bfdComputeL(model)
+
+ g = bfdCovarianceGradient(invK, postK)
+
+ g = bfdKernelGradient(params, model)
+
+ f = bfdKernelObjective(params, model)
+
+ [cellX, cellY] = bfdLoadData(name, type, Ninst)
+ function [cellX, cellY] = loadData(name, type, Ninst)
+
+ [predY, probY] = bfdMakePredictions(model, trainF, ...
+%                                              trainY, testF)
+
+ midterm = bfdMidProduct(model, L)
+
+ model = bfdOptimiseBFD(model, options)
+
+ model = bfdOptimiseKernel(model, options, optiMethod);
+
+ params = bfdParamInit(kernelType, numIn, x)
+
+ bfdPlot(model, titleStrng, kernelType, dataset, axHandle)
+
+ [trainF, testF, model] = bfdProjectData(trainX, trainY, testX, ...
+%                                               testY, modSpecs, params)
+
+ bfdSaveData(kernelType, dataset, resultType, params, varargin)
+
+ [params, selection] = bfdSelectWidth(paramRecord, likeRecord)
+
+ bfdTestToy(dataset, kernelType)
+
+ [paramRecord, likeRecord]  = ...
+%                                bfdTrainModel(partitions, trialWidths,...
+%                                           modSpecs, optimset, dataset)
+
+ model = bfdUpdateBeta(model)
+
+ model = bfdUpdateSigma(model)
+
+
+
+ options = setOptions(optimset)
+
+

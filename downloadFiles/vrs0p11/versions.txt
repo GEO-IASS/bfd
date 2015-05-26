@@ -1,0 +1,29 @@
+File versionlist for the BFD toolbox version 0.11 Monday, December 6, 2004 at 19:15:29
+
+bfd.m	 vs 1.2	 Tue Nov 23 16:52:25 2004
+bfdBound.m	 vs 1.3	 Wed Dec  1 12:34:40 2004
+bfdComputeAlpha.m	 vs 1.2	 Tue Nov 23 16:52:25 2004
+bfdComputeCCProbs.m	 vs 1.3	 Wed Dec  1 12:34:40 2004
+bfdComputeError.m	 vs 1.2	 Wed Dec  1 12:34:40 2004
+bfdComputeL.m	 vs 1.2	 Tue Nov 23 16:52:25 2004
+bfdCovarianceGradient.m	 vs 1.3	 Wed Dec  1 12:34:40 2004
+bfdKernelGradient.m	 vs 1.2	 Tue Nov 23 16:52:25 2004
+bfdKernelObjective.m	 vs 1.2	 Tue Nov 23 16:52:26 2004
+bfdLoadData.m	 vs 1.4	 Tue Nov 30 22:18:42 2004
+bfdMakePredictions.m	 vs 1.2	 Wed Dec  1 12:34:40 2004
+bfdMidProduct.m	 vs 1.2	 Tue Nov 23 16:52:26 2004
+bfdOptimiseBFD.m	 vs 1.2	 Tue Nov 23 16:52:26 2004
+bfdOptimiseKernel.m	 vs 1.2	 Tue Nov 23 16:52:26 2004
+bfdParamInit.m	 vs 1.3	 Wed Dec  1 12:34:40 2004
+bfdPlot.m	 vs 1.4	 Mon Dec  6 19:15:06 2004
+bfdProjectData.m	 vs 1.2	 Wed Dec  1 12:34:40 2004
+bfdSaveData.m	 vs 1.3	 Mon Dec  6 19:15:06 2004
+bfdSelectWidth.m	 vs 1.2	 Wed Dec  1 12:34:40 2004
+bfdTestToy.m	 vs 1.1	 Mon Dec  6 10:59:39 2004
+bfdTrainModel.m	 vs 1.5	 Mon Dec  6 19:15:06 2004
+bfdUpdateBeta.m	 vs 1.2	 Tue Nov 23 16:52:26 2004
+bfdUpdateSigma.m	 vs 1.2	 Tue Nov 23 16:52:26 2004
+classdemo.m	 vs 1.3	 Mon Dec  6 19:15:06 2004
+dembfd.m	 vs 1.6	 Wed Dec  1 12:34:40 2004
+setOptions.m	 vs 1.1	 Wed Dec  1 12:46:08 2004
+toydemo.m	 vs 1.7	 Mon Dec  6 19:15:06 2004
