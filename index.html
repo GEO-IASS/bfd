@@ -1,0 +1,347 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>bfd by lawrennd</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>bfd</h1>
+        <p>MATLAB code for Bayesian interpretation of Fisher&#39;s discriminant</p>
+
+        <p class="view"><a href="https://github.com/lawrennd/bfd">View the Project on GitHub <small>lawrennd/bfd</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/lawrennd/bfd/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/lawrennd/bfd/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/lawrennd/bfd">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="bayesian-fishers-discriminant" class="anchor" href="#bayesian-fishers-discriminant" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bayesian Fisher's discriminant</h1>
+
+<p>This page describes how to use the so-called Bayesian Fisher
+Discriminant (BFD) software.</p>
+
+<p>Please note that in the subsequent discussion we will be using these
+references:</p>
+
+<ol>
+<li><p>T. Peña-Centeno and N. D. Lawrence. (2006) <a href="http://ml.sheffield.ac.uk/%7Eneil/cgi-bin/publications/bibpage.cgi?keyName=Pena:fbd04">"Optimising kernel
+parameters and regularisation coefficients for non-linear
+discriminant
+analysis"</a>
+in Journal of Machine Learning Research, accepted for publication.</p></li>
+<li><p>T. Peña-Centeno and N. D. Lawrence. (2004) <a href="http://ml.sheffield.ac.uk/%7Eneil/cgi-bin/publications/bibpage.cgi?keyName=Pena:fbd-tech04">"Optimising kernel
+parameters and regularisation coefficients for non-linear
+discriminant
+analysis"</a>
+Technical Report no CS-04-13,
+ University of Sheffield, Department of Computer Science.</p></li>
+<li><p>Kevin J. Lang and Michael J. Witbrock (1988) "Learning to tell two
+spirals apart" in Proceedings of the 1988 Connectionist Summer
+School. Morgan Kauffman</p></li>
+<li><p>Spiral data, available
+<a href="http://www-ra.informatik.uni-tuebingen.de/SNNS/SNNS-Mail/96/0464.html">here</a>.</p></li>
+<li><p>Gunnar Rätsch's
+<a href="http://users.rsise.anu.edu.au/%7Eraetsch/data/index">data</a>.</p></li>
+</ol>
+
+<h3>
+<a id="release-information" class="anchor" href="#release-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release Information</h3>
+
+<p>Current release is 0.12</p>
+
+<p>Release 0.12 was used for the experiments presented in [1]. The code was
+written with flexibility in mind so probably there is room to make
+improvements in terms of efficiency of computation.</p>
+
+<p>Release 0.11 corresponds to the results presented in [2].</p>
+
+<p>The BFD software requires some functions, written by Neil D. Lawrence,
+that have been put together in form of the
+<a href="http://ml.sheffield.ac.uk/%7Eneil/ndlutil/downloadFiles">NDLUTIL</a>
+toolbox. You may access this toolbox with the username and password you
+are given when you register for the BFD toolbox. There are many versions
+of this toolbox but we recommend only a few of them in order to obatin
+the results of [1].</p>
+
+<table>
+<thead>
+<tr>
+<th><strong>Toolbox</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/ndlutil/downloadFiles">NDLUTIL</a></td>
+<td>0.12 (or below)</td>
+</tr>
+<tr>
+<td><a href="http://www.aston.ac.uk/eas/research/groups/ncrg/resources/netlab/">Netlab</a></td>
+<td>3.3 (It should work with v3.2 as well)</td>
+</tr>
+<tr>
+<td><a href="http://www.esat.kuleuven.ac.be/sista/lssvmlab/">ls-SVMlab</a></td>
+<td>1.5</td>
+</tr>
+</tbody>
+</table>
+
+<p>To obtain the classification results for benchmark data it will be
+necessary to download Gunnar Rätsch's data, available at [5]. You will
+also need the function
+<a href="http://www.ncrg.aston.ac.uk/netlab/worked.php">normal</a>, written by Ian
+T. Nabney. <strong>Note</strong>: this function does not belong to the Netlab
+toolbox, but is rather a worked example.</p>
+
+<p>Please give a read to the <strong>readme.txt</strong> file that comes in this
+distribution to have more details about the installation procedure.</p>
+
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<h3>
+<a id="synthetic-datasets" class="anchor" href="#synthetic-datasets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Synthetic datasets</h3>
+
+<p>The experiments with synthetic data, presented in [1], can be recreated
+by using the function <code>bfdClassifyToyData</code>. This function can be applied
+on the four synthetic datasets included in the toolbox, henceforth
+referred as: <strong>spiral</strong>, <strong>overlap</strong>, <strong>bumpy</strong> and <strong>relevance</strong>.
+<code>bfdClassifyData</code> also allows the use several type of GP priors, among
+them an RBF and an ARD-composed one. The <strong>spiral</strong> problem was first
+proposed by [3] and the dataset included in this distribution is based
+on the file found at [4].</p>
+
+<p>Given the inputs <img src="xi.png" alt=""> and <img src="xj.png" alt=""> we have implemented the RBF
+prior in the following way,
+<img src="rbfKernel.png" alt="">,</p>
+
+<p>where the parameter vector <img src="rbfTheta.png" alt="">.</p>
+
+<p>The ARD-composed kernel is defined as
+<img src="ardKernel.png" alt="">,</p>
+
+<p>with a vector of parameters given by <img src="ardTheta.png" alt="">. This kernel is
+composed of four parts: RBF-ARD, LINEAR-ARD, BIAS and NOISE parts, thus
+giving its name of 'composed'.</p>
+
+<h4>
+<a id="rbf-experiments" class="anchor" href="#rbf-experiments" aria-hidden="true"><span class="octicon octicon-link"></span></a>RBF experiments</h4>
+
+<p>Just run the following commands from Matlab's command prompt</p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span><span class="pl-c1">dataset</span> = <span class="pl-s"><span class="pl-pds">'</span>overlap<span class="pl-pds">'</span></span>;    
+<span class="pl-k">&gt;&gt; </span>kernelType = {<span class="pl-s"><span class="pl-pds">'</span>rbf<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>bias<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>white<span class="pl-pds">'</span></span>};     
+<span class="pl-k">&gt;&gt; </span>model = bfdClassifyToyData(<span class="pl-c1">dataset</span>, kernelType);       `</pre></div>
+
+<p>For each dataset (<code>spiral</code>, <code>overlap</code>, <code>bumpy</code> and <code>relevance</code>) these
+commands should produce the plots shown below. The function
+<code>bfdClassifyToyData</code> also returns a structure <strong>model</strong> containing all
+the information about the discriminant.</p>
+
+<p><img src="full-spiral.png" alt=""><img src="overlap.png" alt=""> 
+ Classification of synthetic datasets using an RBF kernel. Two classes
+are shown as pluses and circles. The separating line, in blue, was
+obtained by projecting test data over a grid. The dotted line indicates
+points at 1/4 of the distance, as measured in projected space, from the
+decision boundary to the class mean. The blue line was obtained after
+training a BFD model by maximising the marginal log-likelihood, <strong>L</strong>.  
+<em>Left</em>: Spiral data, with bound after training <strong>L</strong>=658.6107.  
+<em>Right</em>: Overlap data with final bound <strong>L</strong>=638.5258. 
+ In both problems the parameters were initialised to <img src="theta_k.png" alt="">.
+<img src="bumpy.png" alt=""><img src="relevance.png" alt=""> 
+ <em>Left</em>: Bumpy data with final bound <strong>L</strong>=609.0547.   <em>Right</em>:
+Relevance data, with bound <strong>L</strong>=895.7308. 
+ For both problems the initial parameters were set to <img src="theta_k.png" alt="">.</p>
+
+<h4>
+<a id="ard-experiments" class="anchor" href="#ard-experiments" aria-hidden="true"><span class="octicon octicon-link"></span></a>ARD experiments</h4>
+
+<p>In order to run experiments with the ARD-composed kernel, it is
+necessary to use a different value for the variable <code>kernelType</code>, as it
+is shown below. </p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span><span class="pl-c1">dataset</span> = <span class="pl-s"><span class="pl-pds">'</span>spiral<span class="pl-pds">'</span></span>;    
+<span class="pl-k">&gt;&gt; </span>kernelType = {<span class="pl-s"><span class="pl-pds">'</span>rbfard<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>linard<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>bias<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>white<span class="pl-pds">'</span></span>};     
+<span class="pl-k">&gt;&gt; </span>model = bfdClassifyToyData(<span class="pl-c1">dataset</span>, kernelType);       `</pre></div>
+
+<p>The script should produce the plots shown below.</p>
+
+<p><img src="full-spiral_ard.png" alt=""><img src="overlap_ard.png" alt=""> 
+ <em>Left</em>: Spiral data, with final <strong>L</strong>=674.2042. In this experiment we
+initialised <img src="theta2Spiral.png" alt=""> and the rest of parameters
+<img src="thetaRemainSpiral.png" alt=""> 
+ <em>Right</em>: Overlap data, with final <strong>L</strong>=650.0908. This experiment used
+as initial parameters <img src="theta_k.png" alt="">.
+<img src="bumpy_ard.png" alt=""><img src="relevance_ard.png" alt=""> 
+ <em>Left</em>: Bumpy data, with final <strong>L</strong>=636.8442.   <em>Right</em>: Relevance
+data, with final <strong>L</strong>=998.9992. 
+ In both problems we used an initial<img src="theta_k.png" alt="">.</p>
+
+<h4>
+<a id="generating-roc-curves-and-computing-aucs" class="anchor" href="#generating-roc-curves-and-computing-aucs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generating ROC curves and computing AUC's</h4>
+
+<p>There are several demos included in this distribution and two of them
+were specifically written to obtain some of the results presented in
+Table 1 of reference [1]. More specifically, these demos generate ROC
+curves for either <strong>banana</strong> or <strong>breast-cancer</strong> data and then obtain
+statistics related to the AUC's (area under ROC curves).</p>
+
+<p>The first demo can be run from the command-line as shown below </p>
+
+<pre><code>&gt;&gt; demAUCbanana  
+</code></pre>
+
+<p>After execution, a file</p>
+
+<p><code>banana_rbfbiaswhite_test_AUC_info.txt</code></p>
+
+<p>will be created inside the directory <code>&lt;bfd-path&gt;/bananaROC/</code>. This file
+contains several statistics related to the ROC curves of <strong>banana</strong> and
+should look like this</p>
+
+<pre lang="  "><code>Dataset: banana       
+Kernel used: rbfbiaswhite       
+These are some statistics of the ROC curves       
+###########################################       
+mean = 0.950725       
+median = 0.952039       
+max = 0.960705       
+min = 0.929625       
+std = 0.006099   
+</code></pre>
+
+<p>Further information in the directory <code>&lt;bfd-path&gt;/bananaROC/</code> will be
+stored, for example a copy of the ROC curve for every test instance of
+<strong>banana</strong>.
+The second demo does the analogue process for <strong>breast-cancer</strong>. Hence
+it is required to run </p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span>demAUCbreastCancer  </pre></div>
+
+<p>in order to obtain a result of this kind</p>
+
+<pre lang="  "><code>Dataset: breast-cancer       
+Kernel used: rbfbiaswhite       
+These are some statistics of the ROC curves        
+###########################################       
+mean = 0.734383       
+median = 0.736931       
+max = 0.909649       
+min = 0.615699       
+std = 0.052524.  
+</code></pre>
+
+<h4>
+<a id="note-on-roc-curves" class="anchor" href="#note-on-roc-curves" aria-hidden="true"><span class="octicon octicon-link"></span></a>Note on ROC curves</h4>
+
+<p>During execution of either of the scripts (<code>demAUCbanana</code> or
+<code>demAUCbreastCancer</code>) the ROC curve of each test instance of the
+datasets will be shown on the screen for a couple of seconds. This
+should look as shown below.</p>
+
+<p><img src="bananaROC_rbfbiaswhite_test_plot_1.png" alt=""><img src="bananaROC_rbfbiaswhite_test_plot_2.png" alt=""> 
+ Some ROC curves of the test instances of <strong>banana</strong>. <em>Left</em>: First
+instance. <em>Right</em>: Second instance.
+<img src="breast-cancerROC_rbfbiaswhite_test_plot_1.png" alt=""><img src="breast-cancerROC_rbfbiaswhite_test_plot_2.png" alt=""> 
+ Some ROC curves of the test instances of <strong>breast-cancer</strong>. <em>Left</em>:
+First instance. <em>Right</em>: Second instance.</p>
+
+<h4>
+<a id="additional-roc-auc-demo" class="anchor" href="#additional-roc-auc-demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additional ROC-AUC demo</h4>
+
+<p>An extra script obtains ROC curves (and additional statistics) for the
+<strong>heart</strong> dataset; this time according to the results of Table 2 of
+reference [1]. Again, it is only a matter of running a script.</p>
+
+<pre><code>&gt;&gt; demAUCheart  
+</code></pre>
+
+<p>The result file should look as follows.</p>
+
+<pre lang="  "><code>Dataset: heart       
+Kernel used: rbfardlinardbiaswhite        
+These are some statistics of the ROC curves.      
+###########################################       
+mean = 0.909429       
+median = 0.908183       
+max = 0.960591       
+min = 0.845779       
+std = 0.027045   
+</code></pre>
+
+<h4>
+<a id="generating-histograms-of-projected-data" class="anchor" href="#generating-histograms-of-projected-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generating histograms of projected data</h4>
+
+<p>The histograms presented in Figure 10 of reference [1] can be created by
+running two scripts. The first script </p>
+
+<pre><code>&gt;&gt; demHistTwonorm  
+</code></pre>
+
+<p>will display and save on file the histograms of <strong>twonorm</strong> projected
+data. All files related the histograms of <strong>twonorm</strong> will be stored in
+a directory <code>&lt;bfd-path&gt;/twonorm_avgHistogram</code>. Among other things, a
+couple of <code>.eps</code> files will contain the average histograms of training
+and test data. Such histograms should be like the ones below.
+<img src="hist_trainTwonorm.png" alt=""><img src="hist_testTwonorm.png" alt=""> 
+ <em>Left</em>: Histogram of projected data for training instances of
+<strong>twonorm</strong> <em>Right</em>: Histogram of projected data for test instances of
+<strong>twonorm</strong>.
+The batch of histograms of <strong>waveform</strong> are obtained by running the
+script</p>
+
+<pre><code>&gt;&gt; demHistWaveform  
+</code></pre>
+
+<p>which generates plots like the following ones.
+<img src="hist_trainWaveform.png" alt=""><img src="hist_testWaveform.png" alt=""> 
+ <em>Left</em>: Histogram of projected data for training instances of
+<strong>waveform</strong> <em>Right</em>: Histogram of projected data for test instances of
+<strong>waveform</strong></p>
+
+<h4>
+<a id="other-experiments" class="anchor" href="#other-experiments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other experiments</h4>
+
+<p>Further experiments can be carried out by modifying the scripts
+previously mentioned of by using the functions <code>bfdClassifyData</code> and
+<code>bfdClassifyToyData</code>. Please note that in order to recreate the results
+of [1], it will also be necessary to read the file
+<strong>experimentResults.txt</strong> included in this distribution. </p>
+
+<p>Tonatiuh Pena Centeno 2006-02-11</p>
+
+<p>Page last modified on Fri Jan 5 12:19:12 GMT 2007.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/lawrennd">lawrennd</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-62968536-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
